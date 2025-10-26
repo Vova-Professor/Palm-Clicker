@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto';
+}
+
+.battleWrap #palm-btn {
+    background: none;
+    border: none;
+    background-image: url(./imgs/palm.png);
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: visible;
+
+}
+
+.battleWrap #palm-btn:active {
+    transform: scale(0.8);
+    transition: transform 0.1s;
+}
+
+
+.battleWrap {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./imgs/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main h2 {
+    margin-top: 50px;
+    margin-right: 80px;
+}
+
+.battleWrap .health-wrap {
+    width: 100%;
+    position:absolute;
+}
+
+aside header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    background-image: url(./imgs/desk.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+aside header h2 {
+    font-weight: 800;
+    color: white;
+    margin: 20px;
+    font-weight: 500;
+}
+
+aside header #money {
+    color: greenyellow;
+    font-weight: 800;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 20px;
+    background-image: url(./imgs/sand.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+aside section article {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    width: 150px;
+    border-radius: 25px;
+}
+
+aside section article h3, p, input {
+    margin: 0;
+    margin-top: 10px;
+}
+
+article h3 {
+    color: orange;
+}
+
+article p {
+    color: rgb(13, 239, 13);
+}
+
+aside section article img {
+    width: 40px;
+    height: 40px;
+}
+    
+#sellBtn {
+    width: 300px;
+    height: 50px;
+    font-size: 20pt;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+aside main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(./imgs/tabler.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+aside main h2 {
+    color: white;
+    margin: 0;
+    margin-top: 10px;
+}
+
+article input {
+    width: 80px;
+    height: 30px;
+    background-color: rgb(85, 189, 24);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+}
+
+article input:hover {
+    background-color: rgb(81, 173, 28);
+    cursor: pointer;
+}
+
+main input {
+    width: 600px;
+    height: 300px;
+    background-color: brown;
+    border:  none;
+    border-radius: 15px;
+    color: white;
+    transition: background-color 0.5s ease;
+
+}
+
+main input:hover {
+    background-color: rgb(131, 37, 37);
+    cursor: pointer;
+}
