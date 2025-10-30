@@ -14,7 +14,11 @@
     <main class="battleWrap">
         <input type="button" id="palm-btn" onclick="farmPalm(this);">
         <div class="healthwrap">
-            <h2 id="health">30</h2>
+            <div class="wrapper">
+                <img src="./imgs/heart.png" id="heart">
+                <h2 id="health">30</h2>
+            </div>
+
         </div>
 
     </main>
@@ -23,7 +27,7 @@
         <header>
             <h2 id="logs">Logs: 0</h2>
             <h2 id="money">Money: $0</h2>
-            <h2 id="energy">Energy: 20</h2>
+            <h2 id="energy" style="color: rgb(255, 251, 0);">Energy: 20</h2>
         </header>
         <main>
             <h2>Sell your logs here!</h2>
@@ -32,6 +36,13 @@
         </main>
 
         <section>
+            <article class="shamaneno">
+                <img src="./imgs/mask.png" alt="mask">
+                <h3>Ancient Shaman Spell</h3>
+                <p id="shaman-price">$50</p>
+                <input type="button" value="Buy" onclick="restore(this);">
+            </article>
+
             <article>
                 <img src="./imgs/sun.png" alt="sun">
                 <h3>Sun</h3>
@@ -63,9 +74,12 @@
                 <input type="button" value="Buy" onclick="upgradeStamina(this);">
                 <p id="stamina-tier">0 Tier</p>
             </article>
+
         </section>
 
+
     </aside>
+
 
     <script src="./scripts/script.js"></script>
 

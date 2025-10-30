@@ -1,6 +1,6 @@
 let health = 30;
 let logsAmount = 0;
-let userMoney = 100000000;
+let userMoney = 10000000;
 
 let logsPerClick = 1;
 let energy = 20;
@@ -18,11 +18,13 @@ const energyTxt = document.getElementById("energy");
 const likelyTxt = document.getElementById("likely");
 const bootsPriceTxt = document.getElementById("boots-price");
 const staminaPriceTxt = document.getElementById("stamina-price");
+const shamanenoPriceTxt = document.getElementById("shaman-price");
 
 const bootsTierTxt = document.getElementById("speed-tier");
 const sunTierTxt = document.getElementById("sun-tier");
 const palmTierTxt = document.getElementById("palm-tier");
 const staminaTierTxt = document.getElementById("stamina-tier");
+const heartImg = document.getElementById("heart");
 
 var energyTimeId = null;
 var healthTimeId = null;
@@ -30,11 +32,11 @@ var healthTimeId = null;
 let healthRegenTime = 3000;
 let energyRegenTime = 2000;
 
-
 let sunCurrentPrice = 100;
 let palmCurrentPrice = 1500;
 let bootsCurrentPrice = 20;
 let staminaCurrentPrice = 20;
+let shamanenoCurrentPrice = 50;
 
 let sunTier = 0;
 let palmTier = 0;
@@ -43,12 +45,44 @@ let staminaTier = 0;
 
 var punchAudio = new Audio('./sounds/punch.mp3');
 var buyAudio = new Audio('./sounds/bought.mp3');
-var cashRegister = new Audio('./sounds/cashRegister.mp3');
+var cashRegister = new Audio('./sounds/register.mp3');
+var ritAudio = new Audio('./sounds/rit.mp3');
 
 
 let marketLogPrice = 3.5;
-
 let likely = 0;
+
+
+
+
+function startHealthRegen() {
+    if (healthTimeId) clearInterval(healthTimeId);
+    healthTimeId = setInterval(() => {
+        if (health < maxHealth) {
+            health++;
+            healthTxt.textContent = health;
+        } else {
+            clearInterval(healthTimeId);
+            healthTimeId = null;
+        }
+    }, healthRegenTime);
+}
+
+
+
+function startEnergyRegen() {
+    if (energyTimeId) clearInterval(energyTimeId);
+    energyTimeId = setInterval(() => {
+        if (energy < maxEnergy) {
+            energy++;
+            energyTxt.textContent = `Energy: ${energy}`;
+        } else {
+            clearInterval(energyTimeId);
+            energyTimeId = null;
+        }
+    }, energyRegenTime);
+}
+
 
 
 function disableButtonTemporarily(button, delay=2000) {
@@ -69,37 +103,22 @@ function disablePalmTemporarily(button, delay=300) {
     }, delay);
 }
 
+
+
 function farmPalm(button) {
-    if (health < maxHealth && !healthTimeId) {
-        healthTimeId = setInterval(() => {
-            if (health < maxHealth) {
-                health++;
-                healthTxt.textContent = health;
-            } else {
-                clearInterval(healthTimeId);
-                healthTimeId = null;
-            }
-        }, healthRegenTime);
+    if (health < maxHealth && !healthTimeId) startHealthRegen();
+    if (energy < maxEnergy && !energyTimeId) startEnergyRegen();
 
-    }
-
-    if (energy < maxEnergy && !energyTimeId) {
-        energyTimeId = setInterval(() => {
-            if (energy < maxEnergy) {
-                energy++;
-                energyTxt.textContent = `Energy: ${energy}`;
-            } else {
-                clearInterval(energyTimeId);
-                energyTimeId = null;
-            }
-        }, energyRegenTime);
-    }
     disablePalmTemporarily(button);
     if (health > 0 && energy > 0) {
         punchAudio.play();
         logsAmount += logsPerClick;
         health--;
         energy--;
+        heartImg.style.transform = "scale(0.8)";
+        setTimeout(() => {
+            heartImg.style.transform = "scale(1)";
+        }, 150);
     }
 
 
@@ -117,6 +136,7 @@ function farmPalm(button) {
 
 function sellLogs() {
     if (logsAmount != 0) {
+        cashRegister.play();
         userMoney += Math.round(logsAmount*marketLogPrice);
         logsAmount = 0;
         likely = 0;
@@ -126,6 +146,8 @@ function sellLogs() {
     }
 
 }
+
+
 
 function sunUpgrader(button) {
     if (sunTier == 6) {
@@ -156,6 +178,8 @@ function sunUpgrader(button) {
 
 }
 
+
+
 function upgradePalm(button) {
     if (palmTier == 10) {
         palmTierTxt.innerText = "MAX";
@@ -176,8 +200,12 @@ function upgradePalm(button) {
         userMoney -= palmCurrentPrice;
         palmCurrentPrice += 2600;
         palmTier++;
+
+        shamanenoCurrentPrice = Math.round(shamanenoCurrentPrice*4.5);
+
         palmPriceTxt.textContent = `$${palmCurrentPrice}`;
         palmTierTxt.textContent = `${palmTier} Tier`;
+        shamanenoPriceTxt.textContent = `$${shamanenoCurrentPrice}`;
 
     }
 
@@ -189,6 +217,8 @@ function upgradePalm(button) {
 
 } 
 
+
+
 function upgradeSpeed(button) {
     if (speedTier == 10) {
         bootsTierTxt.innerText = "MAX";
@@ -196,17 +226,25 @@ function upgradeSpeed(button) {
         bootsPriceTxt.style.color = "red";
         bootsTierTxt.style.color = "red";
 
+        button.style.opacity = .5;
+        button.disabled = true;
+
+        return;
+
     }
     disableButtonTemporarily(button);
     if (userMoney >= bootsCurrentPrice && speedTier < 10) {
         buyAudio.play();
-        healthRegenTime -= 10;
-        energyRegenTime -= 5;
+        healthRegenTime -= 180;
+        energyRegenTime -= 75;
         userMoney -= bootsCurrentPrice;
         bootsCurrentPrice *= 2;
         speedTier++;
         bootsTierTxt.textContent = `${speedTier} Tier`;
         bootsPriceTxt.textContent = `$${bootsCurrentPrice}`;
+
+        startHealthRegen();
+        startEnergyRegen();
     }
 
 
@@ -214,6 +252,8 @@ function upgradeSpeed(button) {
     moneyTxt.textContent = `$${userMoney}`;
 
 }
+
+
 
 function upgradeStamina(button) {
     if (staminaTier == 5) {
@@ -242,3 +282,20 @@ function upgradeStamina(button) {
     moneyTxt.textContent = `$${userMoney}`;
     energyTxt.textContent = `Energy: ${energy}`; 
 }
+
+
+function restore(button) {
+    disableButtonTemporarily(button, 10000);
+    if (userMoney>=shamanenoCurrentPrice) {
+        ritAudio.play();
+        userMoney -= shamanenoCurrentPrice;
+        health = maxHealth;
+        energy = maxEnergy;
+
+        shamanenoPriceTxt.textContent = `$${shamanenoCurrentPrice}`;
+    }
+
+    healthTxt.textContent = health;
+    moneyTxt.textContent = `$${userMoney}`;
+    energyTxt.textContent = `Energy: ${energy}`; 
+} 
