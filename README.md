@@ -1,11 +1,11 @@
 # Palm Clicker
 
-**Current version:** 1.2
+**Current version:** 1.3
 
-A simple clicker game made with **HTML**, **CSS**, and **JavaScript**.
+A simple clicker game built with **HTML**, **CSS**, and **JavaScript** - made just for fun and learning!
 
 Built just for fun and learning!  
-If you notice any images that might be copyrighted, let me know and I’ll take them down.
+If you notice any copyrighted images or assets, please let me know and I’ll remove and replace them.
 
 ---
 
@@ -24,8 +24,8 @@ See the [LICENSE](LICENSE) file for the full terms.
 
 ## What’s New?
 
-- Updated UI with small design improvements.
+- Updated UI with **big** design improvements.
 
-- Added a new **"Ancient Shaman Spell"** item to the shop - restores your health and energy.
+- Improved Gameplay.
 
 - Fixed several bugs and improved overall stability.

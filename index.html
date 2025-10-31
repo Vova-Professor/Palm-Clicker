@@ -23,24 +23,32 @@
 
     </main>
 
-    <aside>
+    <section class="shop-panel">
         <header>
             <h2 id="logs">Logs: 0</h2>
             <h2 id="money">Money: $0</h2>
             <h2 id="energy" style="color: rgb(255, 251, 0);">Energy: 20</h2>
         </header>
-        <main>
+        <section class="sell-area">
             <h2>Sell your logs here!</h2>
             <input type="button" value="Sell" id="sellBtn" onclick="sellLogs();">
             <h2 id="likely">After selling your logs you'll get: $0</h2>
-        </main>
+        </section>
 
         <section>
             <article class="shamaneno">
                 <img src="./imgs/mask.png" alt="mask">
                 <h3>Ancient Shaman Spell</h3>
-                <p id="shaman-price">$50</p>
+                <p id="shaman-price">$8,500</p>
                 <input type="button" value="Buy" onclick="restore(this);">
+            </article>
+
+            <article>
+                <img src="./imgs/palm.png" alt="palm">
+                <h3>Upgrade Palm</h3>
+                <p id="palm-price">$1,500</p>
+                <input type="button" value="Buy" onclick="upgradePalm(this);">
+                <p id="palm-tier">0 Tier</p>
             </article>
 
             <article>
@@ -52,11 +60,11 @@
             </article>
 
             <article>
-                <img src="./imgs/palm.png" alt="palm">
-                <h3>Upgrade Palm</h3>
-                <p id="palm-price">$1500</p>
-                <input type="button" value="Buy" onclick="upgradePalm(this);">
-                <p id="palm-tier">0 Tier</p>
+                <img src="./imgs/Stamina.png" alt="stamina">
+                <h3>Stamina</h3>
+                <p id="stamina-price">$200</p>
+                <input type="button" value="Buy" onclick="upgradeStamina(this);">
+                <p id="stamina-tier">0 Tier</p>
             </article>
 
             <article>
@@ -67,21 +75,17 @@
                 <p id="speed-tier">0 Tier</p>
             </article>
 
-            <article>
-                <img src="./imgs/Stamina.png" alt="stamina">
-                <h3>Stamina</h3>
-                <p id="stamina-price">$200</p>
-                <input type="button" value="Buy" onclick="upgradeStamina(this);">
-                <p id="stamina-tier">0 Tier</p>
-            </article>
+
 
         </section>
 
 
-    </aside>
+    </section>
 
 
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/farmPalm.js"></script>
+    <script src="./scripts/upgrades.js"></script>
 
 </body>
 </html>
