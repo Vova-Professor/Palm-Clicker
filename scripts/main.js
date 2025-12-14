@@ -1,6 +1,6 @@
 let health = 30;
 let logsAmount = 0;
-let userMoney = 1500;
+let userMoney = 0;
 
 let logsPerClick = 1;
 let energy = 20;
@@ -9,7 +9,7 @@ let maxEnergy = 20;
 let maxHealth = 30;
 
 
-// Text (titles)
+// Titles
 const healthTxt = document.getElementById("health");
 const moneyTxt = document.getElementById("money");
 const logsTxt = document.getElementById("logs");
@@ -21,12 +21,16 @@ const bootsPriceTxt = document.getElementById("boots-price");
 const staminaPriceTxt = document.getElementById("stamina-price");
 const shamanenoPriceTxt = document.getElementById("shaman-price");
 
-// Text (tiers)
+// Tiers
 const bootsTierTxt = document.getElementById("speed-tier");
 const sunTierTxt = document.getElementById("sun-tier");
 const palmTierTxt = document.getElementById("palm-tier");
 const staminaTierTxt = document.getElementById("stamina-tier");
+
+// Images
 const heartImg = document.getElementById("heart");
+const logImg = document.getElementById("log-img");
+const energyImg = document.getElementById("energy-img");
 
 var energyTimeId = null;
 var healthTimeId = null;
@@ -66,17 +70,35 @@ setInterval(() => {
 }, 500);
 
 
+const shopOffersState = new Map();
+
 function disabledWrap(state, wrap) {
+    if (shopOffersState.get(wrap) === state) return;
+    shopOffersState.set(wrap, state);
+
+    wrap.style.transition = "opacity 0.3s linear, transform 0.3s linear";
+
     if (state) {
-        wrap.style.opacity = .85;
-    }
-    else {
-        wrap.style.opacity = 1;
-    }
+        wrap.style.opacity = 0;
+        wrap.style.transform = "scale(0.1)";
+        wrap.style.pointerEvents = "none";
 
-    wrap.style.pointerEvents = state ? "none" : "auto";
+        setTimeout(() => {
+            wrap.style.display = "none";
+        }, 300);
+    } else {
+        wrap.style.display = "block";
+        wrap.style.opacity = 0;
+        wrap.style.transform = "scale(0.1)";
+        wrap.style.pointerEvents = "auto";
 
+        setTimeout(() => {
+            wrap.style.opacity = 1;
+            wrap.style.transform = "scale(1)";
+        }, 10);
+    }
 }
+
 
 
 
@@ -146,4 +168,45 @@ function checkPalmTier() {
         disabledWrap(true, shopOffers[3]);
         disabledWrap(true, shopOffers[4]);
     }
+}
+
+function animateNumber(element, start, end, duration = 500, text) {
+    const startTime = performance.now();
+
+    function update(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(start + (end - start) * progress);
+        element.textContent = `${text}${value.toLocaleString()}`;
+
+        if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+}
+
+function floatingText(parent, text) {
+    const span = document.createElement("span");
+    span.className = "float-text";
+    span.textContent = text;
+    parent.appendChild(span);
+    setTimeout(() => span.remove(), 700);
+}
+
+function disableUpgrade(wrap, tierTxt, priceTxt, button) {
+    tierTxt.textContent = "MAX";
+    priceTxt.textContent = "SOLD";
+
+    tierTxt.style.color = "red";
+    priceTxt.style.color = "red";
+
+    button.disabled = true;
+    button.style.opacity = 0.5;
+
+    wrap.style.transition = "opacity .4s, transform .4s";
+    wrap.style.opacity = 0;
+    wrap.style.transform = "scale(.5)";
+
+    setTimeout(() => {
+        wrap.style.display = "none";
+    }, 400);
 }

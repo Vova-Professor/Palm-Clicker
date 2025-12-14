@@ -1,13 +1,11 @@
 function sunUpgrader(button) {
-    if (sunTier == 6) {
-        sunTierTxt.innerText = "MAX";
-        sunPriceTxt.innerText = "SOLD";
-        sunPriceTxt.style.color = "red";
-        sunTierTxt.style.color = "red";
-
-        button.style.opacity = .5;
-        button.disabled = true;
-
+    if (sunTier >= 6) {
+        disableUpgrade(
+            shopOffers[1],
+            sunTierTxt,
+            sunPriceTxt,
+            button
+        );
         return;
     }
     disableButtonTemporarily(button);
@@ -31,14 +29,13 @@ function sunUpgrader(button) {
 
 
 function upgradePalm(button) {
-    if (palmTier == 10) {
-        palmTierTxt.innerText = "MAX";
-        palmPriceTxt.innerText = "SOLD";
-        palmTierTxt.style.color = "red";
-        palmPriceTxt.style.color = "red";
-        button.style.opacity = .5;
-        button.disabled = true;
-
+    if (palmTier >= 10) {
+        disableUpgrade(
+            shopOffers[1],
+            palmTierTxt,
+            palmPriceTxt,
+            button
+        );
         return;
     }
     disableButtonTemporarily(button);
@@ -74,14 +71,12 @@ function upgradePalm(button) {
 
 function upgradeSpeed(button) {
     if (speedTier == 10) {
-        bootsTierTxt.innerText = "MAX";
-        bootsPriceTxt.innerText = "SOLD";
-        bootsPriceTxt.style.color = "red";
-        bootsTierTxt.style.color = "red";
-
-        button.style.opacity = .5;
-        button.disabled = true;
-
+        disableUpgrade(
+            shopOffers[2],
+            palmTierTxt,
+            palmPriceTxt,
+            button
+        );
         return;
 
     }

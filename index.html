@@ -25,9 +25,18 @@
 
     <section class="shop-panel">
         <header>
-            <h2 id="logs">Logs: 0</h2>
+            <div class="value-wrap">
+                <img src="./imgs/log.png" id="log-img">
+                <h2 id="logs">Logs: 0</h2>
+            </div>
+            
             <h2 id="money">Money: $0</h2>
-            <h2 id="energy" style="color: rgb(255, 251, 0);">Energy: 20</h2>
+
+            <div class="value-wrap">
+                <img src="./imgs/energy.png" id="energy-img">
+                <h2 id="energy" style="color: rgb(255, 251, 0);">Energy: 20</h2>
+            </div>
+            
         </header>
         <section class="sell-area">
             <h2>Sell your logs here!</h2>
@@ -35,44 +44,57 @@
             <h2 id="likely">After selling your logs you'll get: $0</h2>
         </section>
 
-        <section>
+        <section class="buy-area">
             <article class="shamaneno">
-                <img src="./imgs/mask.png" alt="mask">
-                <h3>Ancient Shaman Spell</h3>
-                <p id="shaman-price">$8,500</p>
-                <input type="button" value="Buy" onclick="restore(this);">
+                <div class="content">
+                    <img src="./imgs/mask.png" alt="mask">
+                    <h3>Ancient Shaman Spell</h3>
+                    <p id="shaman-price">$8,500</p>
+                    <input type="button" value="Buy" onclick="restore(this);">
+                </div>
             </article>
 
             <article>
-                <img src="./imgs/palm.png" alt="palm">
-                <h3>Upgrade Palm</h3>
-                <p id="palm-price">$1,500</p>
-                <input type="button" value="Buy" onclick="upgradePalm(this);">
-                <p id="palm-tier">0 Tier</p>
+                <div class="content">
+                    <img src="./imgs/palm01.png" alt="palm"style="width: 40px;">
+                    <h3>Upgrade Palm</h3>
+                    <p id="palm-price">$1,500</p>
+                    <input type="button" value="Buy" onclick="upgradePalm(this);">
+                    <p id="palm-tier">0 Tier</p>
+                </div>
             </article>
 
             <article>
-                <img src="./imgs/sun.png" alt="sun">
-                <h3>Sun</h3>
-                <p id="sun-price">$100</p>
-                <input type="button" value="Buy" onclick="sunUpgrader(this);">
-                <p id="sun-tier">0 Tier</p>
+                <div class="content">
+                    <img src="./imgs/sun.png" alt="sun">
+                    <h3>Sun</h3>
+                    <p id="sun-price">$100</p>
+                    <input type="button" value="Buy" onclick="sunUpgrader(this);">
+                    <p id="sun-tier">0 Tier</p>
+                </div>
+
             </article>
 
             <article>
-                <img src="./imgs/Stamina.png" alt="stamina">
-                <h3>Stamina</h3>
-                <p id="stamina-price">$200</p>
-                <input type="button" value="Buy" onclick="upgradeStamina(this);">
-                <p id="stamina-tier">0 Tier</p>
+                <div class="content">
+                    <img src="./imgs/energy.png" alt="stamina" style="width: 30px;">
+                    <h3>Stamina</h3>
+                    <p id="stamina-price">$200</p>
+                    <input type="button" value="Buy" onclick="upgradeStamina(this);">
+                    <p id="stamina-tier">0 Tier</p>
+                </div>
+
             </article>
 
             <article>
-                <img src="./imgs/winged-shoe.png" alt="winged-boots">
-                <h3>Winged Boots</h3>
-                <p id="boots-price">$20</p>
-                <input type="button" value="Buy" onclick="upgradeSpeed(this);">
-                <p id="speed-tier">0 Tier</p>
+                <div class="content">
+                    <img src="./imgs/winged-shoe.png" alt="winged-boots">
+                    <h3>Winged Boots</h3>
+                    <p id="boots-price">$20</p>
+                    <input type="button" value="Buy" onclick="upgradeSpeed(this);">
+                    <p id="speed-tier">0 Tier</p>
+                </div>
+
             </article>
 
 

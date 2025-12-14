@@ -67,37 +67,52 @@ body {
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
-    background-image: url(./imgs/desk.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    justify-content:space-around;
+    background: #5b3e3c;
+    backdrop-filter: blur(4px);
+}
+
+.shop-panel header .value-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-panel header .value-wrap #log-img {
+    width: 70px;
+    height: 35px;
+}
+
+.shop-panel header .value-wrap #energy-img {
+    transition: all .3s ease;
+    width: 25px;
+    height: 40px;
 }
 
 .shop-panel header h2 {
     font-weight: 800;
     color: white;
     margin: 20px;
+    white-space: nowrap;
     font-weight: 500;
 }
 
 .shop-panel header #money {
-    color: greenyellow;
+    color: rgb(0, 255, 0);
     font-weight: 800;
 }
 
 
-.shop-panel section:last-of-type {
+.shop-panel .buy-area {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    justify-content: start;
     gap: 40px;
     width: 100%;
     padding-bottom: 20px;
-    background-image: url(./imgs/sand.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #b59a8c;
     overflow-y: scroll;
     height: 50vh;
 
@@ -107,17 +122,21 @@ body {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 35px 25px;
     justify-content: center;
     align-items: center;
-    background-color: brown;
+    background: #766355;
     width: 150px;
+    height: 180px;
     border-radius: 25px;
     text-align: center;
+    transform: all .5s ease;
 }
 
 .shop-panel section .shamaneno {
-    background-color: rgb(129, 30, 30);
+    background: #5a4534;
 }
 
 .shop-panel section .shamaneno h3 {
@@ -129,17 +148,17 @@ body {
     margin-top: 10px;
 }
 
-article h3 {
+article .content h3 {
     color: orange;
 }
 
-article p {
-    color: rgb(13, 239, 13);
+article .content p {
+    color: rgb(0, 255, 0);
 }
 
 .shop-panel section article img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
     
 #sellBtn {
@@ -165,10 +184,7 @@ article p {
     height: 40vh;
     justify-content: center;
     align-items: center;
-    background-image: url(./imgs/tabler.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #846952;
 }
 
 .shop-panel .sell-area h2 {
@@ -176,6 +192,15 @@ article p {
     margin: 0;
     margin: 10px 15px;
     text-align: center;
+}
+
+article .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 article input {
@@ -196,7 +221,7 @@ article input:hover {
 .sell-area input {
     width: 600px;
     height: 300px;
-    background-color: brown;
+    background-color: #524133;
     border:  none;
     border-radius: 15px;
     color: white;
@@ -205,6 +230,15 @@ article input:hover {
 }
 
 .sell-area input:hover {
-    background-color: rgb(131, 37, 37);
+    background-color: #282019;
     cursor: pointer;
+}
+
+#money {
+    position: relative;
+}
+
+#sellBtn {
+    position: relative;
+    overflow: visible;
 }
