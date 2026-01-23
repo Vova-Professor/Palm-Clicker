@@ -8,6 +8,8 @@ let energy = 20;
 let maxEnergy = 20;
 let maxHealth = 30;
 
+const SAVE = 'palm_game_save'
+
 
 // Titles
 const healthTxt = document.getElementById("health");
@@ -65,12 +67,29 @@ let likely = 0;
 const shopOffers = document.querySelectorAll(".shop-panel article");
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    loadGame();
+});
+
+setInterval(saveGame, 5000);
+
 setInterval(() => {
   checkPalmTier();
 }, 500);
 
 
 const shopOffersState = new Map();
+
+
+const theme = localStorage.getItem("theme");
+
+if (theme === "dark") {
+    document.documentElement.setAttribute("data-theme", "sunburned");
+
+} else {
+    document.documentElement.removeAttribute("data-theme");
+}
+
 
 function disabledWrap(state, wrap) {
     if (shopOffersState.get(wrap) === state) return;
@@ -122,7 +141,7 @@ function startEnergyRegen() {
     energyTimeId = setInterval(() => {
         if (energy < maxEnergy) {
             energy++;
-            energyTxt.textContent = `Energy: ${energy}`;
+            energyTxt.textContent = energy;
         } else {
             clearInterval(energyTimeId);
             energyTimeId = null;
@@ -209,4 +228,93 @@ function disableUpgrade(wrap, tierTxt, priceTxt, button) {
     setTimeout(() => {
         wrap.style.display = "none";
     }, 400);
+}
+
+function saveGame() {
+    const savedData = {
+        health,
+        maxHealth,
+        energy,
+        maxEnergy,
+        logsAmount,
+        userMoney,
+        logsPerClick,
+        marketLogPrice,
+
+        sunTier,
+        palmTier,
+        speedTier,
+        staminaTier,
+
+        sunCurrentPrice,
+        palmCurrentPrice,
+        bootsCurrentPrice,
+        staminaCurrentPrice,
+        shamanenoCurrentPrice,
+
+        healthRegenTime,
+        energyRegenTime
+    }
+
+    localStorage.setItem(SAVE, JSON.stringify(savedData));
+}
+
+
+
+function loadGame() {
+    const saved = localStorage.getItem(SAVE);
+    if (!saved) return;
+
+    const data = JSON.parse(saved);
+
+    Object.assign(window, data);
+
+    health = data.health;
+    maxHealth = data.maxHealth;
+    energy = data.energy;
+    maxEnergy = data.maxEnergy;
+
+    logsAmount = data.logsAmount;
+    userMoney = data.userMoney;
+    logsPerClick = data.logsPerClick;
+    marketLogPrice = data.marketLogPrice;
+
+    sunTier = data.sunTier;
+    palmTier = data.palmTier;
+    speedTier = data.speedTier;
+    staminaTier = data.staminaTier;
+
+    sunCurrentPrice = data.sunCurrentPrice;
+    palmCurrentPrice = data.palmCurrentPrice;
+    bootsCurrentPrice = data.bootsCurrentPrice;
+    staminaCurrentPrice = data.staminaCurrentPrice;
+    shamanenoCurrentPrice = data.shamanenoCurrentPrice;
+
+    healthRegenTime = data.healthRegenTime;
+    energyRegenTime = data.energyRegenTime;
+
+    healthTxt.textContent = health;
+    energyTxt.textContent = energy;
+    logsTxt.textContent = logsAmount;
+    moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
+
+    palmTierTxt.textContent = palmTier;
+    sunTierTxt.textContent = sunTier;
+    bootsTierTxt.textContent = speedTier;
+    staminaTierTxt.textContent = staminaTier;
+
+    sunPriceTxt.textContent = `$${sunCurrentPrice.toLocaleString()}`;
+    palmPriceTxt.textContent = `$${palmCurrentPrice.toLocaleString()}`;
+    bootsPriceTxt.textContent = `$${bootsCurrentPrice.toLocaleString()}`;
+    staminaPriceTxt.textContent = `$${staminaCurrentPrice.toLocaleString()}`;
+    shamanenoPriceTxt.textContent = `$${shamanenoCurrentPrice.toLocaleString()}`;
+
+    likely = Math.round(logsAmount * marketLogPrice);
+    likelyTxt.textContent = `$${likely}`;
+
+    startHealthRegen();
+    startEnergyRegen();
+
+    applyLanguage(localStorage.getItem("language") || "en");
+
 }

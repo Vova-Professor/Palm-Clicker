@@ -27,28 +27,45 @@
         <header>
             <div class="value-wrap">
                 <img src="./imgs/log.png" id="log-img">
-                <h2 id="logs">Logs: 0</h2>
+                <h2>
+                    <span data-i18n="logs"></span>
+                    <span id="logs">0</span>
+                </h2>
             </div>
             
-            <h2 id="money">Money: $0</h2>
+            <h2 class="money">
+                <span data-i18n="money"></span>
+                <span id="money">0</span>
+            </h2>
 
             <div class="value-wrap">
                 <img src="./imgs/energy.png" id="energy-img">
-                <h2 id="energy" style="color: rgb(255, 251, 0);">Energy: 20</h2>
+                <h2 style="color: rgb(255, 251, 0);">
+                    <span data-i18n="energy"></span>
+                    <span id="energy">20</span>
+                </h2>
             </div>
             
         </header>
+
+        <div class="settings-wrap">
+            <img src="./imgs/Settings.png" id="settings" onclick="window.location.href = './settings/index.html'">
+        </div>
+
         <section class="sell-area">
-            <h2>Sell your logs here!</h2>
-            <input type="button" value="Sell" id="sellBtn" onclick="sellLogs();">
-            <h2 id="likely">After selling your logs you'll get: $0</h2>
+            <h2 data-i18n="sell_title"></h2>
+            <input type="button" value="Sell" data-i18n="sell_btn" id="sellBtn" onclick="sellLogs();">
+            <h2>
+                <span data-i18n="likely"></span>
+                <span id="likely"></span>
+            </h2>
         </section>
 
         <section class="buy-area">
             <article class="shamaneno">
                 <div class="content">
                     <img src="./imgs/mask.png" alt="mask">
-                    <h3>Ancient Shaman Spell</h3>
+                    <h3 data-i18n="sham_title"></h3>
                     <p id="shaman-price">$8,500</p>
                     <input type="button" value="Buy" onclick="restore(this);">
                 </div>
@@ -57,20 +74,26 @@
             <article>
                 <div class="content">
                     <img src="./imgs/palm01.png" alt="palm"style="width: 40px;">
-                    <h3>Upgrade Palm</h3>
+                    <h3 data-i18n="palm_title"></h3>
                     <p id="palm-price">$1,500</p>
                     <input type="button" value="Buy" onclick="upgradePalm(this);">
-                    <p id="palm-tier">0 Tier</p>
+                    <p class="palm-line">
+                        <span id="palm-tier">0</span>
+                        <span data-i18n="tier"></span>
+                    </p>
                 </div>
             </article>
 
             <article>
                 <div class="content">
                     <img src="./imgs/sun.png" alt="sun">
-                    <h3>Sun</h3>
+                    <h3 data-i18n="sun_title"></h3>
                     <p id="sun-price">$100</p>
                     <input type="button" value="Buy" onclick="sunUpgrader(this);">
-                    <p id="sun-tier">0 Tier</p>
+                    <p class="sun-line">
+                        <span id="sun-tier">0</span>
+                        <span data-i18n="tier"></span>
+                    </p>
                 </div>
 
             </article>
@@ -78,10 +101,13 @@
             <article>
                 <div class="content">
                     <img src="./imgs/energy.png" alt="stamina" style="width: 30px;">
-                    <h3>Stamina</h3>
+                    <h3 data-i18n="energy_title"></h3>
                     <p id="stamina-price">$200</p>
                     <input type="button" value="Buy" onclick="upgradeStamina(this);">
-                    <p id="stamina-tier">0 Tier</p>
+                    <p class="stamina-line">
+                        <span id="stamina-tier">0</span>
+                        <span data-i18n="tier"></span>
+                    </p>
                 </div>
 
             </article>
@@ -89,10 +115,13 @@
             <article>
                 <div class="content">
                     <img src="./imgs/winged-shoe.png" alt="winged-boots">
-                    <h3>Winged Boots</h3>
+                    <h3 data-i18n="shoe_title"></h3>
                     <p id="boots-price">$20</p>
                     <input type="button" value="Buy" onclick="upgradeSpeed(this);">
-                    <p id="speed-tier">0 Tier</p>
+                    <p class="boots-line">
+                        <span id="speed-tier">0</span>
+                        <span data-i18n="tier"></span>
+                    </p>
                 </div>
 
             </article>
@@ -108,6 +137,14 @@
     <script src="./scripts/main.js"></script>
     <script src="./scripts/farmPalm.js"></script>
     <script src="./scripts/upgrades.js"></script>
+    <script src="./scripts/lang.js"></script>
+    <script src="./scripts/i18n.js"></script>
+    <script>
+        const lang = localStorage.getItem("language") || "en";
+        applyLanguage(lang);
+    </script>
+
+    
 
 </body>
 </html>

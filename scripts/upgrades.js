@@ -15,13 +15,13 @@ function sunUpgrader(button) {
         userMoney = userMoney - sunCurrentPrice;
         sunCurrentPrice = Math.round(sunCurrentPrice*3.5);
         sunTier++;
-        sunTierTxt.textContent = `${sunTier} Tier`;
+        sunTierTxt.textContent = sunTier;
         sunPriceTxt.textContent = `$${sunCurrentPrice.toLocaleString()}`;
 
     }
 
 
-    moneyTxt.textContent = `Money: $${userMoney.toLocaleString()}`;
+    moneyTxt.textContent = userMoney;
 
 
 }
@@ -54,7 +54,7 @@ function upgradePalm(button) {
 
 
         palmPriceTxt.textContent = `$${palmCurrentPrice}`;
-        palmTierTxt.textContent = `${palmTier} Tier`;
+        palmTierTxt.textContent = palmTier;
         shamanenoPriceTxt.textContent = `$${shamanenoCurrentPrice.toLocaleString()}`;
 
     }
@@ -62,7 +62,7 @@ function upgradePalm(button) {
 
 
     healthTxt.textContent = Math.round(health);
-    moneyTxt.textContent = `Money: $${userMoney.toLocaleString()}`;
+    moneyTxt.textContent = ` $${userMoney.toLocaleString()}`;
 
 
 } 
@@ -88,7 +88,7 @@ function upgradeSpeed(button) {
         userMoney -= bootsCurrentPrice;
         bootsCurrentPrice *= 2;
         speedTier++;
-        bootsTierTxt.textContent = `${speedTier} Tier`;
+        bootsTierTxt.textContent = speedTier;
         bootsPriceTxt.textContent = `$${bootsCurrentPrice.toLocaleString()}`;
 
         startHealthRegen();
@@ -123,12 +123,12 @@ function upgradeStamina(button) {
         staminaCurrentPrice*=3;
         energy = maxEnergy;
         staminaPriceTxt.textContent = `$${staminaCurrentPrice.toLocaleString()}`;
-        staminaTierTxt.textContent = `${staminaTier} Tier`;
+        staminaTierTxt.textContent = staminaTier;
     }
 
 
     moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
-    energyTxt.textContent = `Energy: ${energy}`; 
+    energyTxt.textContent = energy; 
 }
 
 
@@ -146,5 +146,5 @@ function restore(button) {
 
     healthTxt.textContent = health;
     moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
-    energyTxt.textContent = `Energy: ${energy}`; 
+    energyTxt.textContent = energy; 
 } 

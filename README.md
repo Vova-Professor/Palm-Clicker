@@ -1,6 +1,6 @@
 # Palm Clicker
 
-**Current version:** 1.4
+**Current version:** 1.5
 
 A simple clicker game built with **HTML**, **CSS**, and **JavaScript** - made just for fun and learning!
 
@@ -23,8 +23,10 @@ See the [LICENSE](LICENSE) file for the full terms.
 
 ## What’s New?
 
-- Fully updated UI
+- New appearance
 
-- Added custom icons
+- Added settings menu
 
-- Added cash animation
+- Added languages
+
+- Progress is now saved using **localStorage**

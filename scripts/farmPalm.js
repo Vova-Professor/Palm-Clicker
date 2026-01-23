@@ -21,12 +21,12 @@ function farmPalm(button) {
 
 
     likely = Math.round(logsAmount*marketLogPrice);
-    animateNumber(likelyTxt, oldLikely, likely, 500, "After selling your logs you'll get: $");
+    animateNumber(likelyTxt, oldLikely, likely, 500, " $");
 
 
     healthTxt.textContent = health;
-    logsTxt.textContent = `Logs: ${logsAmount}`;
-    energyTxt.textContent = `Energy: ${energy}`;
+    logsTxt.textContent = logsAmount;
+    energyTxt.textContent = energy;
 }
 
 
@@ -40,10 +40,10 @@ function sellLogs() {
         logsAmount = 0;
         likely = 0;
 
-        animateNumber(moneyTxt, oldMoney, userMoney, 500, "Money: $");
+        animateNumber(moneyTxt, oldMoney, userMoney, 500, " $");
 
-        logsTxt.textContent = `Logs: ${logsAmount}`;
-        likelyTxt.textContent = `After selling your logs you'll get: $${likely}`;
+        logsTxt.textContent = logsAmount;
+        likelyTxt.textContent = ` $${likely}`;
     }
 
 }

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1 data-i18n="settings">Settings</h1>
+    </header>
+
+    <main>
+        <div class="back-wrap">
+            <img src="../imgs/arrow.png" alt="" onclick="window.location.href = '../index.html'">
+        </div>
+        <section>
+            <article class="appe">
+                <div class="appearance">
+                    <div class="art-head">
+                        <h2 data-i18n="appearance_title">Appearance</h2>
+                    </div>
+
+                    <label for="modes" class="lbl" data-i18n="appearance_mode_title">Mode</label>
+                    <select name="modes" id="modes">
+                        <option value="light" data-i18n="appearance_mode_light">Infant Palm</option>
+                        <option value="dark" data-i18n="appearance_mode_dark">Sunburned Palm</option>
+                    </select>
+                </div>
+
+            </article>
+
+            <article class="langs">
+                <div class="art-head">
+                    <h2 data-i18n="languages_title">Languages</h2>
+                </div>
+
+                <div class="languages">
+                    <label>
+                        <input type="radio" name="language" value="en" checked>
+                        English
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="fr">
+                        Français
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="ar">
+                        عربي
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="ru">
+                        Русский
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="ru_old">
+                        Русский дореформенный
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="pl">
+                        Polski
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="cu">
+                        Црькъвьнословѣньскъ ѩзыкъ
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="uk">
+                        Українська
+                    </label>
+
+
+                    <label>
+                        <input type="radio" name="language" value="sr">
+                        Српски
+                    </label>
+
+
+                    <label>
+                        <input type="radio" name="language" value="ja">
+                        日本語
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="zh">
+                        中國人
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="fi">
+                        Suomi
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="ka">
+                        ქართული
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="el">
+                        Ελληνικά
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="am">
+                        አማርኛ
+                    </label>
+
+                    <label>
+                        <input type="radio" name="language" value="mew">
+                        Mew Meow Meo
+                    </label>
+                    
+
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <script src="../scripts/i18n.js"></script>
+    <script src="../scripts/lang.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const select = document.getElementById("modes");
+            const savedTheme = localStorage.getItem("theme") || "light";
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                savedTheme === "dark" ? "sunburned" : "light"
+            );
+
+            select.value = savedTheme;
+
+            select.addEventListener("change", () => {
+                const theme = select.value;
+                localStorage.setItem("theme", theme);
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    theme === "dark" ? "sunburned" : "light"
+                );
+            });
+
+            const savedLang = localStorage.getItem("language") || "en";
+            const langRadio = document.querySelector(`input[value="${savedLang}"]`);
+            if (langRadio) langRadio.checked = true;
+
+            document.querySelectorAll('input[name="language"]').forEach(radio => {
+                radio.addEventListener("change", () => {
+                    localStorage.setItem("language", radio.value);
+                    applyLanguage(radio.value);
+                });
+            });
+
+            applyLanguage(savedLang);
+        });
+    </script>
+
+
+    
+</body>
+</html>
