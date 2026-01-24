@@ -127,7 +127,7 @@ function upgradeStamina(button) {
     }
 
 
-    moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
+    moneyTxt.textContent = `$${formatNumber(userMoney)}`;
     energyTxt.textContent = energy; 
 }
 
@@ -141,10 +141,10 @@ function restore(button) {
         health = maxHealth;
         energy = maxEnergy;
 
-        shamanenoPriceTxt.textContent = `$${shamanenoCurrentPrice.toLocaleString()}`;
+        shamanenoPriceTxt.textContent = `$${formatNumber(shamanenoCurrentPrice)}`;
     }
 
     healthTxt.textContent = health;
-    moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
+    moneyTxt.textContent = `$${formatNumber(userMoney)}`;
     energyTxt.textContent = energy; 
 } 

@@ -195,7 +195,7 @@ function animateNumber(element, start, end, duration = 500, text) {
     function update(now) {
         const progress = Math.min((now - startTime) / duration, 1);
         const value = Math.floor(start + (end - start) * progress);
-        element.textContent = `${text}${value.toLocaleString()}`;
+        element.textContent = `${text}${formatNumber(value)}`;
 
         if (progress < 1) requestAnimationFrame(update);
     }
@@ -296,18 +296,18 @@ function loadGame() {
     healthTxt.textContent = health;
     energyTxt.textContent = energy;
     logsTxt.textContent = logsAmount;
-    moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
+    moneyTxt.textContent = `$${formatNumber(userMoney)}`;
 
     palmTierTxt.textContent = palmTier;
     sunTierTxt.textContent = sunTier;
     bootsTierTxt.textContent = speedTier;
     staminaTierTxt.textContent = staminaTier;
 
-    sunPriceTxt.textContent = `$${sunCurrentPrice.toLocaleString()}`;
-    palmPriceTxt.textContent = `$${palmCurrentPrice.toLocaleString()}`;
-    bootsPriceTxt.textContent = `$${bootsCurrentPrice.toLocaleString()}`;
-    staminaPriceTxt.textContent = `$${staminaCurrentPrice.toLocaleString()}`;
-    shamanenoPriceTxt.textContent = `$${shamanenoCurrentPrice.toLocaleString()}`;
+    sunPriceTxt.textContent = `$${formatNumber(sunCurrentPrice)}`;
+    palmPriceTxt.textContent = `$${formatNumber(palmCurrentPrice)}`;
+    bootsPriceTxt.textContent = `$${formatNumber(bootsCurrentPrice)}`;
+    staminaPriceTxt.textContent = `$${formatNumber(staminaCurrentPrice)}`;
+    shamanenoPriceTxt.textContent = `$${formatNumber(shamanenoCurrentPrice)}`;
 
     likely = Math.round(logsAmount * marketLogPrice);
     likelyTxt.textContent = `$${likely}`;
@@ -317,4 +317,15 @@ function loadGame() {
 
     applyLanguage(localStorage.getItem("language") || "en");
 
+}
+
+function formatNumber(num) {
+    if (num < 1_000) return num;
+    if (num < 1_000_000) return (num / 1_000).toFixed(1) + "K";
+    if (num < 1_000_000_000) return (num / 1_000_000).toFixed(1) + "M";
+    if (num < 1_000_000_000_000) return (num / 1_000_000_000).toFixed(1) + "B";
+    if (num < 1_000_000_000_000_000) return (num / 1_000_000_000_000).toFixed(1) + "T";
+    if (num < 1_000_000_000_000_000_000) return (num / 1_000_000_000_000_000).toFixed(1) + "Q";
+
+    return "∞";
 }

@@ -19,6 +19,15 @@
     --hovered-button-color: #514032;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.shop-panel,
+.shop-panel header {
+    overflow-x: hidden;
+}
 
 
 body {
@@ -94,9 +103,11 @@ body {
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content:space-around;
+    align-items: center;
+    justify-content:space-between;
     background: var(--bg-panel);
     backdrop-filter: blur(4px);
+    overflow-y: hidden;
 }
 
 .shop-panel header .value-wrap {
@@ -104,6 +115,14 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.shop-panel header #energy-wrap {
+    margin-right: 10px;
+}
+
+.shop-panel header #log-wrap {
+    margin-left: 10px;
 }
 
 .shop-panel header .value-wrap #log-img {
@@ -120,13 +139,15 @@ body {
 .shop-panel header h2 {
     font-weight: 800;
     color: white;
-    margin: 20px;
+    margin-left: 20px;
     white-space: nowrap;
     font-weight: 500;
 }
 
 .shop-panel header .money {
     color: rgb(0, 255, 0);
+    margin-left: 0;
+    margin: 0 10px 0 10px;
     font-weight: 800;
     position: relative;
 }
@@ -156,9 +177,9 @@ body {
 
 .shop-panel .buy-area {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     justify-content: start;
+    align-items: center;
     gap: 40px;
     width: 100%;
     padding-bottom: 20px;
@@ -174,11 +195,11 @@ body {
     flex-direction: column;
     margin-left: 20px;
     margin-right: 20px;
-    padding: 35px 25px;
+    padding: 45px 35px;
     justify-content: center;
     align-items: center;
     background: var(--bg-card);
-    width: 150px;
+    width: 120px;
     height: 180px;
     border-radius: 25px;
     text-align: center;
@@ -287,3 +308,107 @@ article input:hover {
     cursor: pointer;
 }
 
+
+html[lang="ar"] .tier-line {
+    direction: rtl;
+}
+
+
+@media (max-width: 699px) {
+    body {
+        display: block;
+        flex-direction: column;
+        height: 100dvh;
+        overflow: auto;
+    }
+
+    .sell-area input {
+        width: 90%;
+        height: 80px;
+        font-size: 18px;
+    }
+
+    .buy-area,
+    .sell-area {
+        height: auto;
+        min-height: unset;
+    }
+
+    .battleWrap {
+        height: auto;
+        min-height: unset;
+    }
+
+    .battleWrap #palm-btn:active {
+        transform: scale(0.7);
+    }
+
+    .shop-panel header {
+        align-items: center;
+    }
+
+    .battleWrap {
+        width: 100%;
+        height: auto;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+    }
+
+    .battleWrap #palm-btn {
+        width: 200px;
+        height: 280px;
+    }
+
+    .battleWrap .healthwrap .wrapper {
+        transform: translateX(-30px);
+    }
+
+
+    .shop-panel {
+        width: 100%;
+        min-height: 45vh;
+    }
+
+    html, body, section, article {
+        overflow-x: hidden;
+    }
+
+    .battleWrap .healthwrap .wrapper {
+        font-size: 30px;
+    }
+    .shop-panel header {
+        justify-content: space-between;
+    }
+
+    .shop-panel header h2 {
+        white-space: normal;
+        margin-left: 6px;
+    }
+    h2 {
+        font-size: 13pt;
+    }
+
+    header h2 {
+        margin-left: 5px;
+    }
+
+    .shop-panel section article {
+        width: 80px;
+        height: 120px;
+    }
+
+    .shop-panel header .value-wrap #log-img {
+        width: 50px;
+        height: 25px;
+    }
+
+    article .content h3 {
+        font-size: 13pt;
+    }
+
+    .shop-panel header .value-wrap #energy-img {
+        transition: all .3s ease;
+        width: 16px;
+        height: 25px;
+    }
+}

@@ -184,8 +184,26 @@ section .languages label input {
     width: 80px;
 }
 
+@keyframes slide-in {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .back-wrap img:hover {
     cursor: pointer;
+    animation: slide-in 1s ease;
+
+
 }
 
 body,
@@ -196,4 +214,10 @@ section article,
 section .languages label,
 .save-wrap input {
     transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+@media (max-width: 699px) {
+    section article {
+        width: 90%;
+    }
 }
