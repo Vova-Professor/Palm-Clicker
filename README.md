@@ -1,6 +1,6 @@
 # Palm Clicker
 
-**Current version:** 1.5
+**Current version:** 1.6
 
 A simple clicker game built with **HTML**, **CSS**, and **JavaScript** - made just for fun and learning!
 
