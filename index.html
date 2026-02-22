@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Palm Clicker</title>
+    <link rel="shortcut icon" href="./imgs/palm01.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,9 +24,9 @@
 
     </main>
 
-    <section class="shop-panel">
+    <div class="shop-container">
         <header>
-            <div class="value-wrap" id="log-wrap">
+            <div class="value-wrap header-item logs-item" id="log-wrap">
                 <img src="./imgs/log.png" id="log-img">
                 <h2>
                     <span data-i18n="logs"></span>
@@ -33,105 +34,264 @@
                 </h2>
             </div>
             
-            <h2 class="money">
-                <span data-i18n="money"></span>
+            <h2 class="money header-item money-item" id="money-wrap">
+                <span data-i18n="money"></span>&nbsp;
                 <span id="money">0</span>
             </h2>
 
-            <div class="value-wrap" id="energy-wrap">
+            <div class="value-wrap header-item energy-item" id="energy-wrap">
                 <img src="./imgs/energy.png" id="energy-img">
                 <h2 style="color: rgb(255, 251, 0);">
                     <span data-i18n="energy"></span>
                     <span id="energy">20</span>
                 </h2>
             </div>
-            
+
+            <div class="value-wrap header-item reb-logs-item" id="rebLogs-wrap">
+                <img src="./imgs/log-reb.png" id="log-img">
+                <h2>
+                    <span data-i18n="reb_logs"></span>
+                    <span id="rebLogs">0</span>
+                </h2>
+            </div>
+                    
         </header>
 
-        <div class="settings-wrap">
-            <img src="./imgs/Settings.png" id="settings" onclick="window.location.href = './settings/index.html'">
+        <section class="shop-panel" id="normalShop">
+                <div class="settings-wrap">
+                    <img src="./imgs/Settings.png" id="settings" onclick="window.location.href = './settings/index.html'">
+                </div>
+
+            <div class="shop-cath">
+                <div class="tab selected" data-target="normalShop"><h3 data-i18n="tab_normal"></h3></div>
+                <div class="tab" data-target="rebShop"><h3 data-i18n="tab_rebirth"></h3></div>
+                <div class="tab" data-target="workshop"><h3 data-i18n="tab_work"></h3></div>
+            </div>
+
+                <section class="sell-area">
+                    <h2 data-i18n="sell_title"></h2>
+                    <input type="button" value="Sell" data-i18n="sell_btn" id="sellBtn" onclick="sellLogs();">
+                    <h2>
+                        <span data-i18n="likely"></span>
+                        <span id="likely"></span>
+                    </h2>
+                </section>
+
+                <section class="buy-area">
+                    <article class="shamaneno" data-upgrade="shaman">
+                        <div class="content">
+                            <img src="./imgs/mask.png" alt="mask">
+                            <h3 data-i18n="sham_title"></h3>
+                            <p id="shaman-price">$8,500</p>
+                            <input type="button" value="Buy" data-i18n="buy" onclick="restore(this);">
+                        </div>
+                    </article>
+
+                    <article data-upgrade="palm">
+                        <div class="content">
+                            <img src="./imgs/palm01.png" alt="palm"style="width: 40px;">
+                            <h3 data-i18n="palm_title"></h3>
+                            <p id="palm-price">$1,500</p>
+                            <input type="button" value="Buy" data-i18n="buy" onclick="upgradePalm(this);">
+                            <p class="palm-line">
+                                <span id="palm-tier">0</span>
+                                <span data-i18n="tier"></span>
+                            </p>
+                        </div>
+                    </article>
+
+                    <article data-upgrade="sun">
+                        <div class="content">
+                            <img src="./imgs/sun.png" alt="sun">
+                            <h3 data-i18n="sun_title"></h3>
+                            <p id="sun-price">$100</p>
+                            <input type="button" value="Buy" data-i18n="buy" onclick="sunUpgrader(this);">
+                            <p class="sun-line">
+                                <span id="sun-tier">0</span>
+                                <span data-i18n="tier"></span>
+                            </p>
+                        </div>
+
+                    </article>
+
+                    <article data-upgrade="stamina">
+                        <div class="content">
+                            <img src="./imgs/energy.png" alt="stamina" style="width: 30px;">
+                            <h3 data-i18n="energy_title"></h3>
+                            <p id="stamina-price">$200</p>
+                            <input type="button" value="Buy" data-i18n="buy" onclick="upgradeStamina(this);">
+                            <p class="stamina-line">
+                                <span id="stamina-tier">0</span>
+                                <span data-i18n="tier"></span>
+                            </p>
+                        </div>
+
+                    </article>
+
+                    <article data-upgrade="speed">
+                        <div class="content">
+                            <img src="./imgs/winged-shoe.png" alt="winged-boots">
+                            <h3 data-i18n="boots_title"></h3>
+                            <p id="boots-price">$20</p>
+                            <input type="button" value="Buy" data-i18n="buy" onclick="upgradeSpeed(this);">
+                            <p class="boots-line">
+                                <span id="speed-tier">0</span>
+                                <span data-i18n="tier"></span>
+                            </p>
+                        </div>
+
+                    </article>
+
+            </section>
+
+
+
+        </section>
+
+        <section class="shop-panel" id="rebShop">
+            <div class="settings-wrap">
+                <img src="./imgs/Settings.png" id="settings" onclick="window.location.href = './settings/index.html'">
+            </div>
+
+            <div class="shop-cath">
+                <div class="tab" data-target="normalShop"><h3 data-i18n="tab_normal"></h3></div>
+                <div class="tab selected" data-target="rebShop"><h3 data-i18n="tab_rebirth"></h3></div>
+                <div class="tab" data-target="workshop"><h3 data-i18n="tab_work"></h3></div>
+            </div>
+
+            <section class="sell-area">
+                <h2 data-i18n="rebirth_title"></h2>
+                <input type="button" value="Sell" data-i18n="rebirth_btn" id="sellBtn" onclick="rebirth();">
+                <div class="tasks-wrap">
+                    <h3 data-i18n="before_rebirth"></h3>
+                    <ul class="tasks">
+                        <li data-task="logs" data-required="200">
+                            <span data-i18n="earn"></span> <span class="task-current">0</span> / 200 <span data-i18n="logs"></span>
+                        </li>
+                        <li data-task="money" data-required="3000">
+                            <span data-i18n="earn"></span> <span class="task-current">0</span> / 3000 <span data-i18n="money"></span>
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+
+            <section class="buy-area">
+                <article>
+                    <div class="content">
+                        <img src="./imgs/palm01.png" alt="palm"style="width: 40px;">
+                        <h3 data-i18n="bussiness_reb"></h3>
+                        <p>
+                            <img src="./imgs/log-reb.png">
+                            2
+                        </p>
+                        <input type="button" data-required="2" value="Buy" data-unlock="company" data-i18n="buy" onclick="buyRebirthUpgrade(this);">
+                    </div>
+                </article>
+
+                <article data-upgrade="sun">
+                    <div class="content">
+                        <img src="./imgs/mask.png" alt="sun">
+                        <h3 data-i18n="workers_reb"></h3>
+                        <p>
+                            <img src="./imgs/log-reb.png">
+                            1
+                        </p>
+                        <input type="button" value="Buy" data-required="1" data-unlock="workers" data-i18n="buy" onclick="buyRebirthUpgrade(this);">
+                    </div>
+
+                </article>
+
+                <article data-upgrade="stamina">
+                    <div class="content">
+                        <img src="./imgs/log.png" alt="stamina" style="width: 60px; height: 30px;">
+                        <h3 data-i18n="upgrade_company_reb"></h3>
+                        <p>
+                            <img src="./imgs/log-reb.png">
+                            2
+                        </p>
+                        <input type="button" value="Buy" data-required="3" data-unlock="upgrlogs" data-i18n="buy" onclick="buyRebirthUpgrade(this);">
+                    </div>
+
+                </article>
+            </section>
+
+        </section>
+
+        <section class="shop-panel active" id="workshop">
+            <div class="settings-wrap">
+                <img src="./imgs/Settings.png" id="settings" onclick="window.location.href = './settings/index.html'">
+            </div>
+
+            <div class="shop-cath">
+                <div class="tab" data-target="normalShop"><h3 data-i18n="tab_normal"></h3></div>
+                <div class="tab selected" data-target="rebShop"><h3 data-i18n="tab_rebirth"></h3></div>
+                <div class="tab" id="workshopPanel" data-target="workshop"><h3 data-i18n="tab_work"></h3></div>
+            </div>
+
+            <section class="sell-area">
+                <div id="palmsContainer">
+                    <div class="addContainer">
+                        <div class="add" id="addPalm">+</div>
+                        <p id="workshop-palm-price">$2,900</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="buy-area">
+                <div id="workersContainer">
+                    <div class="addContainer">
+                        <div class="add" id="addWorker">+</div>
+                        <p id="workshop-worker-price">$500</p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+        
+    </div>
+
+    <div id="workerModal" class="modal hidden">
+        <div class="modal-content">
+            <section class="app">
+                <img src="./imgs/mask.png">
+            </section>
+            <section class="conf">
+                <h1 data-i18n="worker_conf"></h1>
+                <h2 data-i18n="worker_w"><span id="workerNumber">1</span></h2>
+                <h2 data-i18n="lvl"><span id="workerLvl">1</span></h2>
+                <input type="button" value="Upgrade" data-i18n="upgrade" id="upgradeWorker">
+                <p id="upgrade-worker-price">$500</p>
+                <select name="palms" id="palms-list"></select>
+
+                <input type="button" value="Close" data-i18n="close" class="close" onclick="closeConfiguration()">
+            </section>
         </div>
+    </div>
 
-        <section class="sell-area">
-            <h2 data-i18n="sell_title"></h2>
-            <input type="button" value="Sell" data-i18n="sell_btn" id="sellBtn" onclick="sellLogs();">
-            <h2>
-                <span data-i18n="likely"></span>
-                <span id="likely"></span>
-            </h2>
-        </section>
+    <div id="palmModal" class="modal hidden">
+        <div class="modal-content">
+            <section class="app">
+                <img src="./imgs/palm.png">
+            </section>
+            <section class="conf">
+                <h1 data-i18n="palm_config"></h1>
+                <h2>
+                    <span data-i18n="palm"></span>
+                    <span id="palmNumber">1</span>
+                </h2>
+                <h2 data-i18n="lvl"><span id="palmLvl">1</span></h2>
+                <input type="button" name="upgrade-palm" data-i18n="upgrade" value="Upgrade" id="upgradePalm">
+                <p id="upgrade-palm-price">$2,900</p>
 
-        <section class="buy-area">
-            <article class="shamaneno">
-                <div class="content">
-                    <img src="./imgs/mask.png" alt="mask">
-                    <h3 data-i18n="sham_title"></h3>
-                    <p id="shaman-price">$8,500</p>
-                    <input type="button" value="Buy" onclick="restore(this);">
-                </div>
-            </article>
-
-            <article>
-                <div class="content">
-                    <img src="./imgs/palm01.png" alt="palm"style="width: 40px;">
-                    <h3 data-i18n="palm_title"></h3>
-                    <p id="palm-price">$1,500</p>
-                    <input type="button" value="Buy" onclick="upgradePalm(this);">
-                    <p class="palm-line">
-                        <span id="palm-tier">0</span>
-                        <span data-i18n="tier"></span>
-                    </p>
-                </div>
-            </article>
-
-            <article>
-                <div class="content">
-                    <img src="./imgs/sun.png" alt="sun">
-                    <h3 data-i18n="sun_title"></h3>
-                    <p id="sun-price">$100</p>
-                    <input type="button" value="Buy" onclick="sunUpgrader(this);">
-                    <p class="sun-line">
-                        <span id="sun-tier">0</span>
-                        <span data-i18n="tier"></span>
-                    </p>
-                </div>
-
-            </article>
-
-            <article>
-                <div class="content">
-                    <img src="./imgs/energy.png" alt="stamina" style="width: 30px;">
-                    <h3 data-i18n="energy_title"></h3>
-                    <p id="stamina-price">$200</p>
-                    <input type="button" value="Buy" onclick="upgradeStamina(this);">
-                    <p class="stamina-line">
-                        <span id="stamina-tier">0</span>
-                        <span data-i18n="tier"></span>
-                    </p>
-                </div>
-
-            </article>
-
-            <article>
-                <div class="content">
-                    <img src="./imgs/winged-shoe.png" alt="winged-boots">
-                    <h3 data-i18n="boots_title"></h3>
-                    <p id="boots-price">$20</p>
-                    <input type="button" value="Buy" onclick="upgradeSpeed(this);">
-                    <p class="boots-line">
-                        <span id="speed-tier">0</span>
-                        <span data-i18n="tier"></span>
-                    </p>
-                </div>
-
-            </article>
+                <input type="button" value="Close" data-i18n="close" class="close" onclick="closeConfiguration()">
+            </section>
+        </div>
+    </div>
 
 
-
-        </section>
-
-
-    </section>
+    
 
 
     <script src="./scripts/main.js"></script>
@@ -139,6 +299,9 @@
     <script src="./scripts/upgrades.js"></script>
     <script src="./scripts/lang.js"></script>
     <script src="./scripts/i18n.js"></script>
+    <script src="./scripts/rebirth.js"></script>
+    <script src="./scripts/work.js"></script>
+    <script src="./scripts/worker.js"></script>
     <script>
         const lang = localStorage.getItem("language") || "en";
         applyLanguage(lang);

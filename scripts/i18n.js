@@ -1,3 +1,5 @@
+let currentLang = localStorage.getItem("language") || "en";
+
 function applyLanguage(lang) {
     const dict = translations[lang] || translations.en;
 

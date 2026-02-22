@@ -1,11 +1,6 @@
 function sunUpgrader(button) {
-    if (sunTier >= 6) {
-        disableUpgrade(
-            shopOffers[1],
-            sunTierTxt,
-            sunPriceTxt,
-            button
-        );
+    if (sunTier == 6) {
+        lockUpgrade("sun");
         return;
     }
     disableButtonTemporarily(button);
@@ -21,7 +16,7 @@ function sunUpgrader(button) {
     }
 
 
-    moneyTxt.textContent = userMoney;
+    moneyTxt.textContent = `$${userMoney.toLocaleString()}`;
 
 
 }
@@ -29,13 +24,8 @@ function sunUpgrader(button) {
 
 
 function upgradePalm(button) {
-    if (palmTier >= 10) {
-        disableUpgrade(
-            shopOffers[1],
-            palmTierTxt,
-            palmPriceTxt,
-            button
-        );
+    if (palmTier == 10) {
+        lockUpgrade("palm");
         return;
     }
     disableButtonTemporarily(button);
@@ -71,12 +61,7 @@ function upgradePalm(button) {
 
 function upgradeSpeed(button) {
     if (speedTier == 10) {
-        disableUpgrade(
-            shopOffers[2],
-            palmTierTxt,
-            palmPriceTxt,
-            button
-        );
+        lockUpgrade("speed");
         return;
 
     }
@@ -105,13 +90,7 @@ function upgradeSpeed(button) {
 
 function upgradeStamina(button) {
     if (staminaTier == 5) {
-        staminaTierTxt.innerText = "MAX";
-        staminaPriceTxt.innerText = "SOLD";
-        staminaTierTxt.style.color = "red";
-        staminaPriceTxt.style.color = "red";
-        button.style.opacity = .5;
-        button.disabled = true;
-
+        lockUpgrade("stamina");
         return;
     }
     disableButtonTemporarily(button);

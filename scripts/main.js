@@ -46,13 +46,12 @@ let sunCurrentPrice = 100;
 let palmCurrentPrice = 1500;
 let bootsCurrentPrice = 20;
 let staminaCurrentPrice = 20;
-let shamanenoCurrentPrice = 8500;
+let shamanenoCurrentPrice = 1500;
 
 let sunTier = 0;
 let palmTier = 0;
 let speedTier = 0;
 let staminaTier = 0;
-
 
 // Sounds
 var punchAudio = new Audio('./sounds/punch.mp3');
@@ -69,6 +68,8 @@ const shopOffers = document.querySelectorAll(".shop-panel article");
 
 document.addEventListener("DOMContentLoaded", () => {
     loadGame();
+    checkMaxUpgradesOnStart();
+    applyLayout();
 });
 
 setInterval(saveGame, 5000);
@@ -100,11 +101,7 @@ function disabledWrap(state, wrap) {
     if (state) {
         wrap.style.opacity = 0;
         wrap.style.transform = "scale(0.1)";
-        wrap.style.pointerEvents = "none";
 
-        setTimeout(() => {
-            wrap.style.display = "none";
-        }, 300);
     } else {
         wrap.style.display = "block";
         wrap.style.opacity = 0;
@@ -115,6 +112,21 @@ function disabledWrap(state, wrap) {
             wrap.style.opacity = 1;
             wrap.style.transform = "scale(1)";
         }, 10);
+    }
+}
+
+function checkMaxUpgradesOnStart() {
+    if (sunTier >= 6) {
+        lockUpgrade("sun");
+    }
+    if (palmTier >= 10) {
+        lockUpgrade("palm");
+    }
+    if (speedTier >= 10) {
+        lockUpgrade("speed");
+    }
+    if (staminaTier >= 5) {
+        lockUpgrade("stamina");
     }
 }
 
@@ -169,25 +181,50 @@ function disablePalmTemporarily(button, delay=300) {
     }, delay);
 }
 
+function getUpgrade(name) {
+    const article = document.querySelector(`.shop-panel article[data-upgrade="${name}"]`);
+    if (!article) return null;
+    return {
+        article,
+        button: article.querySelector("input")
+    };
+}
+
+
+function lockUpgrade(name) {
+    const upgrade = getUpgrade(name);
+    if (!upgrade) return;
+
+    upgrade.article.classList.add("locked");
+    upgrade.article.style.display = "none";
+}
+
+function unlockUpgrade(name) {
+    const upgrade = getUpgrade(name);
+    if (!upgrade) return;
+
+    upgrade.article.classList.remove("locked");
+    upgrade.article.style.display = "block";
+} 
+
 
 function checkPalmTier() {
     if (palmTier >= 5) {
-        disabledWrap(false, shopOffers[0]);
-    }
-    else {
-        disabledWrap(true, shopOffers[0]);
+        unlockUpgrade("shaman");
+    } else {
+        lockUpgrade("shaman");
     }
 
     if (palmTier >= 3) {
-        disabledWrap(false, shopOffers[3]);
-        disabledWrap(false, shopOffers[4]);
-    }
-
-    else {
-        disabledWrap(true, shopOffers[3]);
-        disabledWrap(true, shopOffers[4]);
+        if (speedTier < 10) unlockUpgrade("speed");
+        if (staminaTier < 5) unlockUpgrade("stamina");
+    } else {
+        lockUpgrade("speed");
+        lockUpgrade("stamina");
     }
 }
+
+
 
 function animateNumber(element, start, end, duration = 500, text) {
     const startTime = performance.now();
@@ -209,25 +246,6 @@ function floatingText(parent, text) {
     span.textContent = text;
     parent.appendChild(span);
     setTimeout(() => span.remove(), 700);
-}
-
-function disableUpgrade(wrap, tierTxt, priceTxt, button) {
-    tierTxt.textContent = "MAX";
-    priceTxt.textContent = "SOLD";
-
-    tierTxt.style.color = "red";
-    priceTxt.style.color = "red";
-
-    button.disabled = true;
-    button.style.opacity = 0.5;
-
-    wrap.style.transition = "opacity .4s, transform .4s";
-    wrap.style.opacity = 0;
-    wrap.style.transform = "scale(.5)";
-
-    setTimeout(() => {
-        wrap.style.display = "none";
-    }, 400);
 }
 
 function saveGame() {
@@ -253,10 +271,17 @@ function saveGame() {
         shamanenoCurrentPrice,
 
         healthRegenTime,
-        energyRegenTime
+        energyRegenTime,
+
+        workers,
+        palms,
+        unlocks,
+        globalLogsMultiplier
     }
+    localStorage.setItem("rebirth_logs", rebithed_logs);
 
     localStorage.setItem(SAVE, JSON.stringify(savedData));
+    localStorage.setItem("unlocks", JSON.stringify(unlocks));
 }
 
 
@@ -315,6 +340,24 @@ function loadGame() {
     startHealthRegen();
     startEnergyRegen();
 
+    const storedWorkers = JSON.parse(localStorage.getItem("workers") || "[]");
+    const storedPalms = JSON.parse(localStorage.getItem("palms") || "[]");
+
+    workers = storedWorkers;
+    palms = storedPalms;
+
+    rebithed_logs = Number(localStorage.getItem("rebirth_logs")) || data.rebithed_logs || 0;
+    rebithLbl.textContent = rebithed_logs;
+
+    unlocks = JSON.parse(localStorage.getItem("unlocks")) || unlocks;
+    globalLogsMultiplier = data.globalLogsMultiplier || 1;
+
+    restorePalmsUI();
+    restoreWorkersUI();
+    updatePalmUI();
+    updateWorkersUI();
+    applyUnlocks();
+
     applyLanguage(localStorage.getItem("language") || "en");
 
 }
@@ -328,4 +371,29 @@ function formatNumber(num) {
     if (num < 1_000_000_000_000_000_000) return (num / 1_000_000_000_000_000).toFixed(1) + "Q";
 
     return "∞";
+}
+
+function updateHeader(tab) {
+    document.querySelectorAll(".header-item").forEach(el => el.style.display = "none");
+
+    if (tab === "normalShop") {
+        document.querySelectorAll(".logs-item, .money-item, .energy-item").forEach(el => el.style.display = "flex");
+    }
+    else if (tab === "rebShop") {
+        document.querySelectorAll(".money-item, .reb-logs-item, .logs-item").forEach(el => el.style.display = "flex");
+    }
+    else if (tab === "workshop") {
+        document.querySelectorAll(".money-item, .logs-item").forEach(el => el.style.display = "flex");
+    }
+}
+
+function applyLayout() {
+    const layout = localStorage.getItem("layout") || "right";
+
+    if (layout === "left") {
+        document.body.classList.add("shop-left");
+    }
+    else {
+        document.body.classList.remove("shop-left");
+    }
 }

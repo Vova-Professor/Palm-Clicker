@@ -20,6 +20,7 @@
         <div class="back-wrap">
             <img src="../imgs/arrow.png" alt="" onclick="window.location.href = '../index.html'">
         </div>
+        
         <section>
             <article class="appe">
                 <div class="appearance">
@@ -31,6 +32,12 @@
                     <select name="modes" id="modes">
                         <option value="light" data-i18n="appearance_mode_light">Infant Palm</option>
                         <option value="dark" data-i18n="appearance_mode_dark">Sunburned Palm</option>
+                    </select>
+
+                    <label for="layout" class="lbl">Shop Placement</label>
+                    <select id="layout">
+                        <option value="right">Shop Right</option>
+                        <option value="left">Shop Left</option>
                     </select>
                 </div>
 
@@ -115,6 +122,11 @@
                     </label>
 
                     <label>
+                        <input type="radio" name="language" value="hi">
+                        हिंदी
+                    </label>
+
+                    <label>
                         <input type="radio" name="language" value="am">
                         አማርኛ
                     </label>
@@ -138,6 +150,15 @@
         document.addEventListener("DOMContentLoaded", () => {
             const select = document.getElementById("modes");
             const savedTheme = localStorage.getItem("theme") || "light";
+
+            const layoutSelect = document.getElementById("layout");
+            const savedLayout = localStorage.getItem("layout") || "right";
+
+            layoutSelect.value = savedLayout;
+
+            layoutSelect.addEventListener("change", () => {
+                localStorage.setItem("layout", layoutSelect.value);
+            })
 
             document.documentElement.setAttribute(
                 "data-theme",

@@ -27,6 +27,7 @@ function farmPalm(button) {
     healthTxt.textContent = health;
     logsTxt.textContent = logsAmount;
     energyTxt.textContent = energy;
+    updateTasks()
 }
 
 
@@ -44,6 +45,7 @@ function sellLogs() {
 
         logsTxt.textContent = logsAmount;
         likelyTxt.textContent = ` $${likely}`;
+        updateTasks()
     }
 
 }
