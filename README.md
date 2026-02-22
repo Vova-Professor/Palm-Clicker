@@ -1,6 +1,6 @@
 # Palm Clicker
 
-**Current version:** 1.6
+**Current version:** 1.7
 
 A simple clicker game built with **HTML**, **CSS**, and **JavaScript** - made just for fun and learning!
 
@@ -23,8 +23,6 @@ See the [LICENSE](LICENSE) file for the full terms.
 
 ## What’s New?
 
-- Added Responsive design
+- Added Rebirth
 
-- Fixed alignment issues
-
-- Money will be formatted now, for example 1_000_000 -> 1M; 1_000_000_000 -> 1B
+- Added Hindi Language
