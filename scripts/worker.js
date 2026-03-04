@@ -27,13 +27,6 @@ function updatePricesUI() {
         `$${formatNumber(PALM_PRICE)}`;
 }
 
-function updateWorkerModal() {
-    const worker = workers[active_entity.index];
-
-    document.getElementById("upgrade-worker-price").textContent =
-        `$${formatNumber(worker.lvl * 100)}`;
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     updatePricesUI();
 });
@@ -112,7 +105,7 @@ document.addEventListener("click", (e) => {
         applyLanguage(localStorage.getItem("language") || "en");
     }
     if (e.target.id === "addPalm") {
-        if (!unlocks.workers) return;
+        if (!unlocks.company) return;
 
         const price = 2900;
         if (userMoney < price) {
@@ -216,10 +209,9 @@ function updateWorkerModal() {
 
 function updatePalmModal() {
     const palm = palms[active_entity.index];
-    const conf = document.querySelector("#palmModal .conf");
 
-    conf.querySelector("h2:nth-of-type(1)").textContent = palm.name;
-    conf.querySelector("h2:nth-of-type(2)").textContent = `Lvl ${palm.lvl}`;
+    document.getElementById("palmNumber").textContent = palm.name;
+    document.getElementById("palmLvl").textContent = palm.lvl;
 
     document.getElementById("upgrade-palm-price").textContent =
         `$${formatNumber(palm.lvl * 500)}`;
@@ -315,17 +307,20 @@ function restoreWorkersUI() {
             </div>
         `);
     });
+
+    updateWorkersUI();
 }
 
 function restorePalmsUI() {
     const container = document.getElementById("palmsContainer");
 
     palms.forEach((palm, i) => {
+        const used = palm.workers.filter(w => w !== null).length;
         createArt(container, `
             <div class="content">
                 <img src="./imgs/palm01.png" style="width:40px;height:60px;">
                 <h3><span data-i18n="palm"></span> ${palm.name}</h3>
-                <h3 class="palm-workers">0/2</h3>
+                <h3 class="palm-workers">${used}/2</h3>
                 <input type="button" data-i18n="configure"
                     onclick="openConfiguration('palm', ${i});">
             </div>

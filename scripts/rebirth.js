@@ -53,9 +53,6 @@ document.querySelectorAll(".shop-cath .tab").forEach(tab => {
     });
 });
 
-tabsNormal.forEach(t => t && (t.onclick = () => switchShop("normal")));
-tabsReb.forEach(t => t && (t.onclick = () => switchShop("reb")));
-
 
 
 function rebirth() {

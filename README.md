@@ -1,6 +1,6 @@
 # Palm Clicker
 
-**Current version:** 1.7
+**Current version:** 1.7.5
 
 A simple clicker game built with **HTML**, **CSS**, and **JavaScript** - made just for fun and learning!
 
@@ -23,6 +23,4 @@ See the [LICENSE](LICENSE) file for the full terms.
 
 ## What’s New?
 
-- Added Rebirth
-
-- Added Hindi Language
+- Fixed Rebirth
