@@ -23,4 +23,6 @@ See the [LICENSE](LICENSE) file for the full terms.
 
 ## What’s New?
 
-- Fixed Rebirth
+- Added LOLCAT language
+
+- Fixed language errors and mistakes.

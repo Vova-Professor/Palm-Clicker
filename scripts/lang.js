@@ -27,10 +27,10 @@ const translations = {
     reb_logs: "Rebirthed Logs",
     rebirth_title: "Rebirth here!",
     rebirth_btn: "Rebirth",
-    before_rebirth: "Before you rebith you should:",
+    before_rebirth: "Before you rebirth you should:",
     earn: "Earn",
     bussiness_reb: "Run a company",
-    workers_reb: "Hire document",
+    workers_reb: "Hire workers",
     upgrade_company_reb: "Upgrade Wood Extraction",
     worker_w: "Worker",
     unemployed: "Unemployed",
@@ -41,7 +41,10 @@ const translations = {
     upgrade: "Upgrade",
     worker_config: "Worker Configuration",
     palm_config: "Palm Configuration",
-    palm_full: "Palm is full!"
+    palm_full: "Palm is full!",
+    sh_plc: "Shop Placement",
+    sh_rgh: "Shop Right",
+    sh_lft: "Shop Left",
   },
 
   ru: {
@@ -75,7 +78,7 @@ const translations = {
     before_rebirth: "Перед перерождением тебе следует:",
     earn: "Заработать",
     bussiness_reb: "Управлять компанией",
-    workers_reb: "Нанять документ",
+    workers_reb: "Нанять рабочих",
     upgrade_company_reb: "Улучшить добычу древесины",
     worker_w: "Работник",
     unemployed: "Безработный",
@@ -86,7 +89,10 @@ const translations = {
     upgrade: "Улучшить",
     worker_config: "Настройка работника",
     palm_config: "Настройка пальмы",
-    palm_full: "Пальма заполнена!"
+    palm_full: "Пальма заполнена!",
+    sh_plc: "Расположение магазина",
+    sh_rgh: "Магазин справа",
+    sh_lft: "Магазин слева",
   },
 
   ru_old: {
@@ -120,7 +126,7 @@ const translations = {
     before_rebirth: "Прежде возрождениа подобает:",
     earn: "Стяжати",
     bussiness_reb: "Владати дружиною",
-    workers_reb: "Няти грамоту",
+    workers_reb: "Нанять работников",
     upgrade_company_reb: "Возвысити добывание древъ",
     worker_w: "Трудник",
     unemployed: "Без труда",
@@ -131,7 +137,10 @@ const translations = {
     upgrade: "Возвысити",
     worker_config: "Устроение трудника",
     palm_config: "Устроение пальмы",
-    palm_full: "Пальма исполнена!"
+    palm_full: "Пальма исполнена!",
+    sh_plc: "Устроение торговища",
+    sh_rgh: "Торговище одесную",
+    sh_lft: "Торговище ошуюю",
   },
 
   pl: {
@@ -165,7 +174,7 @@ const translations = {
     before_rebirth: "Zanim się odrodzisz powinieneś:",
     earn: "Zarób",
     bussiness_reb: "Prowadź firmę",
-    workers_reb: "Zatrudnij dokument",
+    workers_reb: "Zatrudnij pracowników",
     upgrade_company_reb: "Ulepsz Wydobycie Drewna",
     worker_w: "Pracownik",
     unemployed: "Bezrobotny",
@@ -176,9 +185,12 @@ const translations = {
     upgrade: "Ulepsz",
     worker_config: "Konfiguracja Pracownika",
     palm_config: "Konfiguracja Palmy",
-    palm_full: "Palma jest pełna!"
+    palm_full: "Palma jest pełna!",
+    sh_plc: "Położenie sklepu",
+    sh_rgh: "Sklep po prawej",
+    sh_lft: "Sklep po lewej",
   },
-  
+
   sr: {
     palm: "Palma",
     buy: "Kupi",
@@ -210,7 +222,7 @@ const translations = {
     before_rebirth: "Пре него што се поново родиш треба да:",
     earn: "Заради",
     bussiness_reb: "Води компанију",
-    workers_reb: "Запосли документ",
+    workers_reb: "Запосли раднике",
     upgrade_company_reb: "Унапреди вађење дрвета",
     worker_w: "Радник",
     unemployed: "Незапослен",
@@ -221,7 +233,10 @@ const translations = {
     upgrade: "Унапреди",
     worker_config: "Подешавање радника",
     palm_config: "Подешавање палме",
-    palm_full: "Палма је пуна!"
+    palm_full: "Палма је пуна!",
+    sh_plc: "Позиција продавнице",
+    sh_rgh: "Продавница десно",
+    sh_lft: "Продавница лево",
   },
 
   fr: {
@@ -250,12 +265,12 @@ const translations = {
     tab_rebirth: "Renaissance",
     tab_work: "Travail",
     reb_logs: "Bûches de Renaissance",
-    rebirth_title: "Re-naissez ici !",
+    rebirth_title: "Renaissez ici !",
     rebirth_btn: "Renaissance",
     before_rebirth: "Avant de renaître vous devriez :",
     earn: "Gagner",
     bussiness_reb: "Diriger une entreprise",
-    workers_reb: "Embaucher un document",
+    workers_reb: "Embaucher des ouvriers",
     upgrade_company_reb: "Améliorer l'Extraction du Bois",
     worker_w: "Ouvrier",
     unemployed: "Sans emploi",
@@ -266,7 +281,10 @@ const translations = {
     upgrade: "Améliorer",
     worker_config: "Configuration de l'Ouvrier",
     palm_config: "Configuration du Palmier",
-    palm_full: "Le palmier est plein !"
+    palm_full: "Le palmier est plein !",
+    sh_plc: "Placement de la boutique",
+    sh_rgh: "Boutique à droite",
+    sh_lft: "Boutique à gauche",
   },
 
   cu: {
@@ -300,7 +318,7 @@ const translations = {
     before_rebirth: "Прѣжде возрожденїа подобаетъ:",
     earn: "Стѧжати",
     bussiness_reb: "Владати дружиною",
-    workers_reb: "Нѧти грамотѫ",
+    workers_reb: "Нѧти дѣлателѩ",
     upgrade_company_reb: "Возвысити добыванїе древъ",
     worker_w: "Дѣлатель",
     unemployed: "Безъ дѣла",
@@ -311,7 +329,10 @@ const translations = {
     upgrade: "Возвысити",
     worker_config: "Устроенїе дѣлателя",
     palm_config: "Устроенїе пальмы",
-    palm_full: "Пальма исплънена!"
+    palm_full: "Пальма исплънена!",
+    sh_plc: "Устроенїе торжища",
+    sh_rgh: "Торжище одесноѭ",
+    sh_lft: "Торжище ошоуюѭ",
   },
 
   el: {
@@ -345,7 +366,7 @@ const translations = {
     before_rebirth: "Πριν αναγεννηθείς πρέπει να:",
     earn: "Κέρδισε",
     bussiness_reb: "Διεύθυνε εταιρεία",
-    workers_reb: "Πρόσλαβε έγγραφο",
+    workers_reb: "Προσλάβε εργάτες",
     upgrade_company_reb: "Αναβάθμιση Εξόρυξης Ξύλου",
     worker_w: "Εργάτης",
     unemployed: "Άνεργος",
@@ -356,7 +377,10 @@ const translations = {
     upgrade: "Αναβάθμιση",
     worker_config: "Διαμόρφωση Εργάτη",
     palm_config: "Διαμόρφωση Φοινικιάς",
-    palm_full: "Η φοινικιά είναι γεμάτη!"
+    palm_full: "Η φοινικιά είναι γεμάτη!",
+    sh_plc: "Τοποθέτηση καταστήματος",
+    sh_rgh: "Κατάστημα δεξιά",
+    sh_lft: "Κατάστημα αριστερά",
   },
 
   ar: {
@@ -390,7 +414,7 @@ const translations = {
     before_rebirth: "قبل أن تولد من جديد يجب أن:",
     earn: "اكسب",
     bussiness_reb: "إدارة شركة",
-    workers_reb: "توظيف وثيقة",
+    workers_reb: "توظيف عمال",
     upgrade_company_reb: "ترقية استخراج الخشب",
     worker_w: "عامل",
     unemployed: "عاطل",
@@ -401,7 +425,10 @@ const translations = {
     upgrade: "ترقية",
     worker_config: "تكوين العامل",
     palm_config: "تكوين النخلة",
-    palm_full: "النخلة ممتلئة!"
+    palm_full: "النخلة ممتلئة!",
+    sh_plc: "موضع المتجر",
+    sh_rgh: "المتجر يميناً",
+    sh_lft: "المتجر يساراً",
   },
 
   de: {
@@ -435,7 +462,7 @@ const translations = {
     before_rebirth: "Bevor du wiedergeboren wirst solltest du:",
     earn: "Verdiene",
     bussiness_reb: "Führe ein Unternehmen",
-    workers_reb: "Stelle ein Dokument ein",
+    workers_reb: "Arbeiter einstellen",
     upgrade_company_reb: "Holzgewinnung verbessern",
     worker_w: "Arbeiter",
     unemployed: "Arbeitslos",
@@ -446,7 +473,10 @@ const translations = {
     upgrade: "Verbessern",
     worker_config: "Arbeiterkonfiguration",
     palm_config: "Palmenkonfiguration",
-    palm_full: "Palme ist voll!"
+    palm_full: "Palme ist voll!",
+    sh_plc: "Shop-Platzierung",
+    sh_rgh: "Shop rechts",
+    sh_lft: "Shop links",
   },
 
   zh: {
@@ -480,7 +510,7 @@ const translations = {
     before_rebirth: "重生前你应该：",
     earn: "赚取",
     bussiness_reb: "经营公司",
-    workers_reb: "雇佣文件",
+    workers_reb: "雇佣工人",
     upgrade_company_reb: "升级木材提取",
     worker_w: "工人",
     unemployed: "失业",
@@ -491,7 +521,10 @@ const translations = {
     upgrade: "升级",
     worker_config: "工人配置",
     palm_config: "棕榈配置",
-    palm_full: "棕榈树已满！"
+    palm_full: "棕榈树已满！",
+    sh_plc: "商店位置",
+    sh_rgh: "商店靠右",
+    sh_lft: "商店靠左",
   },
 
   ja: {
@@ -525,7 +558,7 @@ const translations = {
     before_rebirth: "転生する前に：",
     earn: "稼ぐ",
     bussiness_reb: "会社を経営",
-    workers_reb: "書類を雇用",
+    workers_reb: "労働者を雇用",
     upgrade_company_reb: "木材採取を強化",
     worker_w: "労働者",
     unemployed: "無職",
@@ -536,7 +569,10 @@ const translations = {
     upgrade: "強化",
     worker_config: "労働者設定",
     palm_config: "ヤシの木設定",
-    palm_full: "ヤシの木がいっぱいです！"
+    palm_full: "ヤシの木がいっぱいです！",
+    sh_plc: "ショップ配置",
+    sh_rgh: "ショップ右",
+    sh_lft: "ショップ左",
   },
 
   am: {
@@ -568,9 +604,9 @@ const translations = {
     rebirth_title: "እዚህ እንደገና ተወለድ!",
     rebirth_btn: "እንደገና ልደት",
     before_rebirth: "ከመደገምዎ በፊት ማድረግ ያለብዎት:",
-    earn: "ተጠቅም",
+    earn: "ተጠቀም",
     bussiness_reb: "ኩባንያ አስተዳድር",
-    workers_reb: "ወረቀት ቅጠር",
+    workers_reb: "ሠራተኞችን ቅጠር",
     upgrade_company_reb: "የእንጨት ማውጣት አሻሽል",
     worker_w: "ሠራተኛ",
     unemployed: "ሥራ አልባ",
@@ -581,7 +617,10 @@ const translations = {
     upgrade: "አሻሽል",
     worker_config: "የሠራተኛ ግብአት",
     palm_config: "የዘንባባ ግብአት",
-    palm_full: "ዘንባባው እስከ ጫፍ ሞልቷል!"
+    palm_full: "ዘንባባው እስከ ጫፍ ሞልቷል!",
+    sh_plc: "የሱቅ አቀማመጥ",
+    sh_rgh: "ሱቅ በቀኝ",
+    sh_lft: "ሱቅ በግራ",
   },
 
   hi: {
@@ -615,7 +654,7 @@ const translations = {
     before_rebirth: "पुनर्जन्म लेने से पहले आपको:",
     earn: "कमाएँ",
     bussiness_reb: "कंपनी चलाएँ",
-    workers_reb: "दस्तावेज़ किराए पर लें",
+    workers_reb: "कर्मचारी किराए पर लें",
     upgrade_company_reb: "लकड़ी निष्कर्षण अपग्रेड",
     worker_w: "कर्मचारी",
     unemployed: "बेरोजगार",
@@ -626,7 +665,10 @@ const translations = {
     upgrade: "अपग्रेड",
     worker_config: "कर्मचारी कॉन्फ़िगरेशन",
     palm_config: "पाम कॉन्फ़िगरेशन",
-    palm_full: "पाम भरा हुआ है!"
+    palm_full: "पाम भरा हुआ है!",
+    sh_plc: "दुकान स्थान",
+    sh_rgh: "दुकान दाईं",
+    sh_lft: "दुकान बाईं",
   },
 
   it: {
@@ -660,7 +702,7 @@ const translations = {
     before_rebirth: "Prima di rinascere dovresti:",
     earn: "Guadagna",
     bussiness_reb: "Gestisci un'azienda",
-    workers_reb: "Assumi documento",
+    workers_reb: "Assumi lavoratori",
     upgrade_company_reb: "Migliora Estrazione Legno",
     worker_w: "Lavoratore",
     unemployed: "Disoccupato",
@@ -671,7 +713,10 @@ const translations = {
     upgrade: "Migliora",
     worker_config: "Configurazione Lavoratore",
     palm_config: "Configurazione Palma",
-    palm_full: "La palma è piena!"
+    palm_full: "La palma è piena!",
+    sh_plc: "Posizione negozio",
+    sh_rgh: "Negozio a destra",
+    sh_lft: "Negozio a sinistra",
   },
 
   fi: {
@@ -705,7 +750,7 @@ const translations = {
     before_rebirth: "Ennen uudelleensyntymistä sinun tulisi:",
     earn: "Ansaitse",
     bussiness_reb: "Johda yritystä",
-    workers_reb: "Palkkaa asiakirja",
+    workers_reb: "Palkkaa työntekijöitä",
     upgrade_company_reb: "Päivitä Puunpoisto",
     worker_w: "Työntekijä",
     unemployed: "Työtön",
@@ -716,7 +761,10 @@ const translations = {
     upgrade: "Päivitä",
     worker_config: "Työntekijän Määritys",
     palm_config: "Palmun Määritys",
-    palm_full: "Palmu on täynnä!"
+    palm_full: "Palmu on täynnä!",
+    sh_plc: "Kaupan sijoitus",
+    sh_rgh: "Kauppa oikealla",
+    sh_lft: "Kauppa vasemmalla",
   },
 
   uk: {
@@ -750,7 +798,7 @@ const translations = {
     before_rebirth: "Перед переродженням тобі слід:",
     earn: "Заробити",
     bussiness_reb: "Керувати компанією",
-    workers_reb: "Найняти документ",
+    workers_reb: "Найняти робітників",
     upgrade_company_reb: "Покращити видобуток деревини",
     worker_w: "Робітник",
     unemployed: "Безробітний",
@@ -761,7 +809,10 @@ const translations = {
     upgrade: "Покращити",
     worker_config: "Налаштування робітника",
     palm_config: "Налаштування пальми",
-    palm_full: "Пальма заповнена!"
+    palm_full: "Пальма заповнена!",
+    sh_plc: "Розміщення магазину",
+    sh_rgh: "Магазин праворуч",
+    sh_lft: "Магазин ліворуч",
   },
 
   pt: {
@@ -795,7 +846,7 @@ const translations = {
     before_rebirth: "Antes de renascer você deve:",
     earn: "Ganhar",
     bussiness_reb: "Gerenciar uma empresa",
-    workers_reb: "Contratar documento",
+    workers_reb: "Contratar trabalhadores",
     upgrade_company_reb: "Melhorar Extração de Madeira",
     worker_w: "Trabalhador",
     unemployed: "Desempregado",
@@ -806,7 +857,10 @@ const translations = {
     upgrade: "Melhorar",
     worker_config: "Configuração do Trabalhador",
     palm_config: "Configuração da Palmeira",
-    palm_full: "A palmeira está cheia!"
+    palm_full: "A palmeira está cheia!",
+    sh_plc: "Posição da loja",
+    sh_rgh: "Loja à direita",
+    sh_lft: "Loja à esquerda",
   },
 
   es: {
@@ -840,7 +894,7 @@ const translations = {
     before_rebirth: "Antes de renacer deberías:",
     earn: "Ganar",
     bussiness_reb: "Gestionar una empresa",
-    workers_reb: "Contratar documento",
+    workers_reb: "Contratar trabajadores",
     upgrade_company_reb: "Mejorar Extracción de Madera",
     worker_w: "Trabajador",
     unemployed: "Desempleado",
@@ -851,7 +905,10 @@ const translations = {
     upgrade: "Mejorar",
     worker_config: "Configuración del Trabajador",
     palm_config: "Configuración de la Palmera",
-    palm_full: "¡La palmera está llena!"
+    palm_full: "¡La palmera está llena!",
+    sh_plc: "Posición de la tienda",
+    sh_rgh: "Tienda a la derecha",
+    sh_lft: "Tienda a la izquierda",
   },
 
   ka: {
@@ -877,15 +934,15 @@ const translations = {
     energy_title: "გამძლეობის გაუმჯობესება",
     boots_title: "ფრთიანი ჩექმები",
     tab_normal: "ნორმალური",
-    tab_rebirth: "დაბადება",
+    tab_rebirth: "ხელახლა დაბადება",
     tab_work: "სამუშაო",
-    reb_logs: "დაბადების მორები",
-    rebirth_title: "აქ დაიბადე!",
-    rebirth_btn: "დაბადება",
-    before_rebirth: "დაბადებამდე უნდა:",
+    reb_logs: "ხელახლა დაბადების მორები",
+    rebirth_title: "აქ ხელახლა დაიბადე!",
+    rebirth_btn: "ხელახლა დაბადება",
+    before_rebirth: "ხელახლა დაბადებამდე უნდა:",
     earn: "მიიღე",
     bussiness_reb: "კომპანიის მართვა",
-    workers_reb: "დოკუმენტის დაქირავება",
+    workers_reb: "მუშების დაქირავება",
     upgrade_company_reb: "ხის მოპოვების გაუმჯობესება",
     worker_w: "მუშა",
     unemployed: "უმუშევარი",
@@ -896,7 +953,10 @@ const translations = {
     upgrade: "გაუმჯობესება",
     worker_config: "მუშის კონფიგურაცია",
     palm_config: "პალმის კონფიგურაცია",
-    palm_full: "პალმა სავსეა!"
+    palm_full: "პალმა სავსეა!",
+    sh_plc: "მაღაზიის განთავსება",
+    sh_rgh: "მაღაზია მარჯვნივ",
+    sh_lft: "მაღაზია მარცხნივ",
   },
 
   tr: {
@@ -930,7 +990,7 @@ const translations = {
     before_rebirth: "Yeniden doğmadan önce şunları yapmalısın:",
     earn: "Kazan",
     bussiness_reb: "Şirket Yönet",
-    workers_reb: "Belge İşe Al",
+    workers_reb: "İşçi İşe Al",
     upgrade_company_reb: "Ahşap Çıkarmayı Geliştir",
     worker_w: "İşçi",
     unemployed: "İşsiz",
@@ -941,7 +1001,10 @@ const translations = {
     upgrade: "Geliştir",
     worker_config: "İşçi Yapılandırması",
     palm_config: "Palmiye Yapılandırması",
-    palm_full: "Palmiye dolu!"
+    palm_full: "Palmiye dolu!",
+    sh_plc: "Mağaza Konumu",
+    sh_rgh: "Mağaza Sağda",
+    sh_lft: "Mağaza Solda",
   },
 
   af: {
@@ -975,7 +1038,7 @@ const translations = {
     before_rebirth: "Voordat jy wedergebore word moet jy:",
     earn: "Verdien",
     bussiness_reb: "Bestuur 'n Maatskappy",
-    workers_reb: "Huur dokument",
+    workers_reb: "Huur werkers",
     upgrade_company_reb: "Verbeter Houtontginning",
     worker_w: "Werker",
     unemployed: "Werkloos",
@@ -986,6 +1049,57 @@ const translations = {
     upgrade: "Verbeter",
     worker_config: "Werkerkonfigurasie",
     palm_config: "Palmkonfigurasie",
-    palm_full: "Palm is vol!"
-  }
+    palm_full: "Palm is vol!",
+    sh_plc: "Winkelplasing",
+    sh_rgh: "Winkel regs",
+    sh_lft: "Winkel links",
+  },
+
+  lolcat: {
+    palm: "Teh Palm Tree",
+    buy: "Gimme",
+    sell_title: "Sell ur logz heer, k?",
+    sell_btn: "Sell plz",
+    money: "Monies",
+    logs: "Logz",
+    energy: "Nrgy",
+    settings: "Settingz",
+    appearance_title: "Lookz",
+    appearance_mode_title: "Moodz",
+    appearance_mode_dark: "Sunburnd Palm",
+    appearance_mode_light: "Brite Palm",
+    appearance_font_title: "Letterz",
+    languages_title: "Languagez",
+    likely: "After sellin ur logz u gets: ",
+    tier: "Tier",
+    sham_title: "Spooky Old Shaman Spel",
+    palm_title: "Maek Palm Bettr",
+    sun_title: "Maek Sun Bettr",
+    energy_title: "Moar Stamina plz",
+    boots_title: "Boots Wit Wings!!",
+    tab_normal: "Normal",
+    tab_rebirth: "Rebirth!!",
+    tab_work: "Werk",
+    reb_logs: "Rebirth Logz",
+    rebirth_title: "Rebirth heer, k!",
+    rebirth_btn: "Rebirth!!",
+    before_rebirth: "B4 u rebirth u shud:",
+    earn: "Earn stuffz",
+    bussiness_reb: "Run a compny",
+    workers_reb: "Hire wurkers",
+    upgrade_company_reb: "Maek Wood Gettin Bettr",
+    worker_w: "Wurker",
+    unemployed: "No job :(",
+    working: "Iz wurkin",
+    lvl: "lvl",
+    configure: "Set it up",
+    close: "Bai",
+    upgrade: "Maek bettr",
+    worker_config: "Wurker Settingz",
+    palm_config: "Palm Settingz",
+    palm_full: "Palm iz full! :3",
+    sh_plc: "Shoppe Placemnt",
+    sh_rgh: "Shoppe iz rite",
+    sh_lft: "Shoppe iz lft",
+  },
 };

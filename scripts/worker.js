@@ -46,7 +46,7 @@ function addWorker() {
         <div class="content">
             <img src="./imgs/mask.png">
             <h3><span data-i18n="worker_w"></span> ${workers[workerIndex].name}</h3>
-            <p class="worker-status unemployed">Unemployed</p>
+            <p class="worker-status unemployed" data-i18n="unemployed"></p>
             <input type="button" data-i18n="configure" onclick="openConfiguration('worker', ${workerIndex});">
         </div>
     `;
@@ -186,11 +186,11 @@ function updateWorkerModal() {
     const worker = workers[active_entity.index];
     const conf = document.querySelector("#workerModal .conf");
 
-    conf.querySelector("h2:nth-of-type(1)").textContent = worker.name;
-    conf.querySelector("h2:nth-of-type(2)").textContent = `Lvl ${worker.lvl}`;
+    document.getElementById("workerNumber").textContent = worker.name;
+    document.getElementById("workerLvl").textContent = worker.lvl;
 
     const palmSelect = conf.querySelector("#palms-list");
-    palmSelect.innerHTML = `<option value="">Unemployed</option>`;
+    palmSelect.innerHTML = `<option value="">${translations[currentLang].unemployed}</option>`;
 
     palms.forEach((palm, i) => {
         const option = document.createElement("option");
@@ -298,9 +298,9 @@ function restoreWorkersUI() {
         createArt(container, `
             <div class="content">
                 <img src="./imgs/mask.png">
-                <h3><span data-i18n="worker_w"></span> ${worker.name}</h3>
+                <h3><span data-i18n="working"></span> ${worker.name}</h3>
                 <p class="worker-status ${worker.palm === null ? "unemployed" : "working"}">
-                    ${worker.palm === null ? "Unemployed" : "Working"}
+                    ${worker.palm === null ? translations[currentLang].unemployed : translations[currentLang].working}
                 </p>
                 <input type="button" data-i18n="configure"
                     onclick="openConfiguration('worker', ${i});">
@@ -320,7 +320,10 @@ function restorePalmsUI() {
             <div class="content">
                 <img src="./imgs/palm01.png" style="width:40px;height:60px;">
                 <h3><span data-i18n="palm"></span> ${palm.name}</h3>
-                <h3 class="palm-workers">${used}/2</h3>
+                <h3>
+                    <span data-i18n="working"></span>
+                    <span class="palm-workers">${used}/2</span>
+                </h3>
                 <input type="button" data-i18n="configure"
                     onclick="openConfiguration('palm', ${i});">
             </div>
